@@ -1,0 +1,54 @@
+div.back {
+    background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
+    align-content:  center;
+    align-items:   center;
+    text-align: center;
+}
+
+div.upper {
+    width: 100%;
+}
+
+div.upleft {
+    width: 25%;
+    text-align: left;
+    float: left;
+    opacity: 0;
+}
+
+div.upmid {
+    width: 50%;
+    float: left;
+}
+
+div.upright {
+    width: 25%;
+    text-align: left;
+    float: left;
+}
+
+div.lower {
+    width: 100%;
+}
+
+div.loside {
+    width: 30%;
+    float: left;
+}
+
+div.lomid {
+    width: 40%;
+    float: left;
+}
+
+div.upper:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+div.lower:after {
+    content: "";
+    display: table;
+    clear: both;
+}

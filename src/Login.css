@@ -1,0 +1,72 @@
+.submitButton {
+    width: 20%;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #B6D9FF;
+    box-shadow: 4px 8px 9px 0px rgba(0, 0, 0, 0.20);
+    margin-top: 64px;
+    margin-left: 40%;
+    margin-right: 40%;
+    color: #00286B;
+    font-family: Lexend;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.submitDiv {
+    line-height: 200px;
+}
+
+.logDiv {
+    /* margin-top: 0%; */
+    background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
+    /* object-fit: fill; */
+}
+
+.inClass {
+    width: 30%;
+    height: 24px;
+    margin-left: 35%;
+    margin-right: 35%;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #E3EDFF;
+}
+
+.labelClass {
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.h1Login {
+    color: #00286B;
+    text-align: center;
+    font-family: Lexend;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 64px; /* 64% */
+    letter-spacing: -0.25px;
+}
+
+.pLogin {
+    color: #00286B;
+    font-family: Lexend;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    /* line-height: 64px; */
+    letter-spacing: -0.25px;
+    margin-top: 30px;
+    margin-left: 35%;
+}
+
+body {
+    /* background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
+    object-fit: fill;
+    margin-top: 0%;
+    margin-bottom: -100%; */
+    /* height: 100%; */
+}

@@ -1,0 +1,34 @@
+.selectedItem {
+    opacity: 100%;
+    margin: auto;
+}
+
+.unselectedItem {
+    opacity: 42%;
+    margin: auto;
+}
+
+div.top {
+    opacity: 0%;
+    font-size:2px;
+}
+
+div.bottom {
+    /* height: 95%; */
+}
+
+img.pages {
+    vertical-align: middle;
+    /* margin-top: 2px; */
+    margin-right: 5px;
+    margin-left: 5%;
+}
+
+span.pages {
+    margin-right: 10%;
+}
+
+span.bar {
+    /* display:inline-block; */
+    vertical-align:middle;
+}
