@@ -1,0 +1,57 @@
+.backgr {
+  background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
+  align-content:  center;
+  align-items:   center;
+  text-align: center;
+  font-family: Lexend;
+}
+
+.App-profilePic{
+    border-radius: 50%;
+    position: fixed;
+    width: 15%;
+  }
+  
+.mainarea {
+  width: 100%;
+}
+
+.pfp {
+  width: 20%;
+  float: left;
+}
+
+.info {
+  width: 80%;
+  float: left;
+  
+}
+
+.infbox {
+  border-style:solid;
+  border-color:#E0E9F9;
+  border-radius: 20px;
+  width: 80%;
+}
+
+.App-title{
+    color: #01358C;
+    font-size: 32px;
+    font-family: Lexend;
+    font-weight: 700;
+    line-height: 64px;
+    margin-bottom: 100px;
+    margin-right: 475px;
+}
+
+.App-rectangle{
+    height: 550px;
+    width: 950px;
+    position: fixed;
+    top: 200px;
+    left: 375px;
+}
+  
+.inftitles{
+  opacity: 51%;
+}
