@@ -17,6 +17,21 @@ div.bottom {
     /* height: 95%; */
 }
 
+div.left {
+    width: 25%;
+    float: left;
+}
+
+div.middle {
+    width: 25%;
+    float: left;
+}
+
+div.right {
+    width: 25%;
+    float: left;
+}
+
 img.pages {
     vertical-align: middle;
     /* margin-top: 2px; */
@@ -26,9 +41,4 @@ img.pages {
 
 span.pages {
     margin-right: 10%;
-}
-
-span.bar {
-    /* display:inline-block; */
-    vertical-align:middle;
 }

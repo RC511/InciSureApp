@@ -1,3 +1,5 @@
+@import "@fontsource/lexend/700.css";
+
 .navBar {
     color: #01358C;
     background-color: #E6EFFF;
@@ -8,8 +10,10 @@
     margin-right: 10%;
     margin-bottom: 48px;
     width: 80%;
-    height: 40px;
+    height: 36px;
     font-size:18px;
     text-align: center;
     border-radius:8px;
+    font-family: Lexend;
+    font-weight: 700;
 }

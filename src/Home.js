@@ -3,6 +3,7 @@ import maleHappy from './assets/maleHappy.png';
 import maleSad from './assets/maleSad.png';
 import femHappy from './assets/femHappy.png';
 import femSad from './assets/femSad.png';
+import logOutSign from './assets/log-out-01.png';
 import './Home.css';
 import './NavBar.css';
 import NavBarItem from './NavBarItem.js';
@@ -18,6 +19,13 @@ function getDate() {
     return `${day}, ${date} ${month} ${year}`;
 }
 
+function logOut() {
+    localStorage.removeItem("token");
+    window.location.reload(true);
+}
+
+// maybe do background-image
+
 export default function Home() {
     return (
         <div class="back">
@@ -31,23 +39,40 @@ export default function Home() {
                         a
                     </div>
                     <div class="upmid">
-                        <h1>WELCOME</h1>
-                        <h2>ur okay</h2>
+                        <h1 class="greeting">WELCOME, Patient</h1>
+                        <h2 class="status">Your wound is doing <span class="statusColouring">WELL</span>!</h2>
                     </div>
                     <div class="upright">
-                        <img src={calendar} height="20px" />{getDate()}<br />
-                        Last updated...
+                        <img src={calendar} height="24px" /> {getDate()}
+                        <p class="lUpdate">Last updated...</p>
                     </div>
                 </div>
                 <div class="lower">
                     <div class="loside">
-                        Temp
+                        <div class="tempBox">
+                            <p class="tempFiller">a</p>
+                            <p class="tempName">Temperature</p>
+                            <p class="tempValue">37.5°C</p>
+                        </div>
                     </div>
                     <div class="lomid">
                         <img src={maleHappy} width="85%" />
                     </div>
                     <div class="loside">
-                        Time using bandage
+                        <div class="calBox">
+                            <div class="calTop">
+                                
+                            </div>
+                            <div class="calBot">
+                                <p class="dayCount">16</p>
+                                <p class="dayText">Days</p>
+                            </div>
+                        </div>
+                        <div class="logOut">
+                            <button onClick={() => {logOut()}} class="logOutBtn">
+                                <img src={logOutSign} /> Log Out
+                            </button>
+                        </div>
                     </div>
                 </div>
                 {/* <header className="App-header"> */}

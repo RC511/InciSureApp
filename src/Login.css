@@ -1,3 +1,5 @@
+@import "@fontsource/lexend/700.css";
+
 .submitButton {
     width: 20%;
     height: 52px;
@@ -9,6 +11,7 @@
     margin-left: 40%;
     margin-right: 40%;
     color: #00286B;
+    border: none;
     font-family: Lexend;
     font-size: 30px;
     font-style: normal;
@@ -31,7 +34,8 @@
     margin-left: 35%;
     margin-right: 35%;
     flex-shrink: 0;
-    border-radius: 20px;
+    border-radius: 10px;
+    border: none;
     background: #E3EDFF;
 }
 

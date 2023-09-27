@@ -17,24 +17,30 @@ export default function NavBarItem(type) {
                 a
             </div>
             <div class="bottom">
-                <span class="bar">
+                <div class="left">
                     <Link to="/" class={(type == 1) ? "selectedItem" : "unselectedItem"}>
                         <img class="pages" src={dash} height="20" />
                         <span class="pages">{name1}</span>
                     </Link>
+                </div>
+                <div class="middle">
                     <Link to="/logs" class={(type == 2) ? "selectedItem" : "unselectedItem"}>
                         <img class="pages" src={logs} height="20"  />
                         <span class="pages">{name2}</span>
                     </Link>
+                </div>
+                <div class="middle">
                     <Link to="/inquiries" class={(type == 3) ? "selectedItem" : "unselectedItem"}>
                         <img class="pages" src={inquiries} height="20"  />
                         <span class="pages">{name3}</span>
                     </Link>
+                </div>
+                <div class="right">
                     <Link to="/profile" class={(type == 4) ? "selectedItem" : "unselectedItem"}>
                         <img class="pages" src={profile} height="24"  />
                         <span class="pages">{name4}</span>
                     </Link>
-                </span>
+                </div>
             </div>
         </div>
     );

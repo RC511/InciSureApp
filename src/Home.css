@@ -1,8 +1,29 @@
+@import "@fontsource/lexend/700.css";
+
 div.back {
     background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
     align-content:  center;
     align-items:   center;
     text-align: center;
+    font-family: Lexend;
+}
+
+h1.greeting {
+    color: #01358C;
+}
+
+h2.status {
+    color: #01358C;
+}
+
+p.lUpdate {
+    opacity: 0.42;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+span.statusColouring {
+    color: green;
 }
 
 div.upper {
@@ -25,6 +46,9 @@ div.upright {
     width: 28%;
     text-align: left;
     float: left;
+    color:#01358C;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 div.lower {
@@ -51,4 +75,89 @@ div.lower:after {
     content: "";
     display: table;
     clear: both;
+}
+
+div.tempBox {
+    margin-top: 50px;
+    width: 70%;
+    height: 200px;
+    background-color: #F4F8FF;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 20px;
+    box-shadow: 9px 8px 4px 1px;
+}
+
+p.tempFiller {
+    margin-bottom: 0px;
+    font-size: 8px;
+    opacity: 0;
+}
+
+p.tempName {
+    font-weight: bold;
+    font-size: 24px;
+    color: #01358C;
+    margin-bottom: 0;
+}
+
+p.tempValue {
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 72px;
+    color: #01358C;
+}
+
+div.calBox {
+    margin-top: 50px;
+    border-style: solid;
+    border-color: #9CADCA;
+    background-color: #F4F8FF;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 20px;
+    box-shadow: 9px 8px 4px 1px;
+}
+
+div.calTop {
+    margin-bottom: 30px;
+}
+
+div.calBot {
+    border-style: solid;
+    border-color: #9CADCA;
+    border-width: 2px 0 0 0;
+    color:#01358C;
+}
+
+p.dayCount {
+    font-size: 72px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+p.dayText {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+div.logOut {
+    margin-top: 50%;
+    text-align: right;
+    
+}
+
+button.logOutBtn {
+    font-size: 24px;
+    font-weight: bold;
+    color:#01358C;
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    cursor: pointer;
+    display: inline-block;
 }
