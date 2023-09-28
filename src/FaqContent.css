@@ -1,0 +1,25 @@
+.faq-container {
+  color: #062d71;
+  font-family: "Lexend";
+  
+}
+
+.faq-title{
+  margin-top:50px ;
+  margin-bottom: 30px ;
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+.questions-text {
+  font-size: x-large;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.answer-text{
+  font-size: large;
+  color: rgb(214, 24, 24);
+  margin-bottom: 25px;
+  font-weight: 700;
+}

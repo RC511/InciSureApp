@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.calendar-container{
+  margin-top: 56px;
+  font-size: 9px;
+}
+
+.date-header{
+  color: #062d71;
+  font-family: "Lexend";
+  font-size: x-large;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.doctor-name{
+  color:#062d71;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: "Lexend";
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.appointment-text{
+  font-family: "Lexend";
+  color:#062d71;
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+

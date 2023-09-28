@@ -1,7 +1,6 @@
 import './Profile.css';
-import logo from './logo.svg';
 import profilePic from './assets/img_avatar.png'
-import rectangle from './assets/Rectangle.png'
+import wave from './assets/wave.png'
 import NavBarItem from './NavBarItem';
 import './NavBar.css';
 
@@ -13,55 +12,42 @@ export default function Profile() {
             <div class="navBar">
                 {NavBarItem(4)}
             </div>
-            <div class="mainarea">
-                <div class="pfp">
-                    <img src={profilePic} className="App-profilePic" alt="profilePic"/>
-                    testin
+            <main class="container1">
+                <div class="avatar">
+                    <img src={profilePic} className="profilePic" />
                 </div>
-                <div class="info">
-                    <div>
-                        User Information
-                    </div>
-                    <div class="infbox">
-                        <div>
-                            <p className="inftitles">Name</p>
-                            <p className="inftitles">Birthday</p>
-                            <p className="inftitles">Phone</p>
-                            <p className="inftitles">Email</p>
-                            <p className="inftitles">Sex</p>
-                            <p className="inftitles">Age</p>
-                            <p className="inftitles">Emergency contact</p>
+                <main class="container2">
+                    <div class="title">User Information</div>
+                    <main class="container3">
+                        <div class="information1">
+                            <p></p>
+                            <p className="item">Name</p>
+                            <p className="detail">Smile</p>
+                            <p className="item">Birthday</p>
+                            <p className="detail">01 Jan 2000</p>
+                            <p className="item">Phone</p>
+                            <p className="detail">+65 12345678</p>
+                            <p className="item">Email</p>
+                            <p className="detail">Group4@gmail.com</p>
+                            <p></p>
                         </div>
-                    </div>
-                </div>
-
+                        <div class="information2">
+                            <p></p>
+                            <p className="item">Sex</p>
+                            <p className="detail">C</p>
+                            <p className="item">Age</p>
+                            <p className="detail">99</p>
+                            <p className="item">Emergency contact</p>
+                            <p className="detail">+65 88888888</p>
+                            <p></p>
+                        </div>
+                    </main>
+                    
+                </main>
+            </main>
+            <div class="profileBottom">
+                <img src={wave} className="wave" />
             </div>
-
-
-            
-            {/* <p className="App-title">
-            Hello World
-            </p>
-            <img src={rectangle} className="App-rectangle" alt="rectangle"/> */}
-            
-
-            
-
-
-            
-                {/* <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                >
-                Learn React
-                </a> */}
-
          </div>
     )
 }

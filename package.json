@@ -4,17 +4,22 @@
   "private": true,
   "dependencies": {
     "@arduino/arduino-iot-client": "^2.0.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fontsource/lexend": "^5.0.12",
+    "@mui/material": "^5.14.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "ajv": "^8.12.0",
+    "dayjs": "^1.11.10",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "nth-check": "^2.1.1",
     "object-path": "^0.11.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
     "react-pro-sidebar": "^1.1.0-alpha.1",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
@@ -45,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
   }
 }

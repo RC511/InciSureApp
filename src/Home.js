@@ -33,7 +33,7 @@ export default function Home() {
             <div class="navBar">
                 {NavBarItem(1)}
             </div>
-            <div>
+            <div style={{margin: "48px"}}>
                 <div class="upper">
                     <div class="upleft">
                         a
@@ -43,7 +43,7 @@ export default function Home() {
                         <h2 class="status">Your wound is doing <span class="statusColouring">WELL</span>!</h2>
                     </div>
                     <div class="upright">
-                        <img src={calendar} height="24px" /> {getDate()}
+                        <img src={calendar} height="24px" /> <span style={{fontWeight: "bold"}}>{getDate()}</span>
                         <p class="lUpdate">Last updated...</p>
                     </div>
                 </div>

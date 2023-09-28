@@ -3,6 +3,8 @@ import Home from './Home.js';
 import Profile from './Profile.js';
 import PHome from './PhoneHome.js';
 import Login from './Login.js';
+import Logs from './Logs.js';
+import Inquiries from './Inquiries.js';
 import useToken from './TokenHandler.js';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -39,8 +41,8 @@ function DesktopPages() {
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/logs" element={<Profile />} />
-          <Route path="/inquiries" element={<Profile />} />
+          <Route path="/logs" element={<Logs />} />
+          <Route path="/inquiries" element={<Inquiries />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
