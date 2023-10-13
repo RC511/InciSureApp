@@ -27,6 +27,7 @@ const isMobile = width <= 768;
 */
 
 // this is a new hi for me
+// a different hi
 
 function MobilePages() {
   return (
