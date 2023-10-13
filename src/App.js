@@ -26,6 +26,8 @@ useEffect(() => {
 const isMobile = width <= 768;
 */
 
+// this is a new hi for me
+
 function MobilePages() {
   return (
     <BrowserRouter>
