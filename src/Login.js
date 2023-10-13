@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 // async function loginUser(credentials) {
 //  return fetch('./users.json', {
@@ -106,6 +107,9 @@ export default function Login({ setToken }) {
           <button type="submit" class="submitButton">SUBMIT</button>
         </div>
         { (errType == 3) && <p>err</p>}
+        <Link to="/forgotpswd">
+          Forgot password
+        </Link>
       </form>
     </div>
   )
