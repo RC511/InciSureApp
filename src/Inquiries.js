@@ -7,12 +7,14 @@ import { Divider } from "@mui/material";
 import FaqContent from "./FaqContent";
 import NavBarItem from "./NavBarItem.js";
 import './NavBar.css';
-import Calendar from "./main_calendar";
+import Calendar from "./utils/main_calendar";
 import { generateDate } from "./utils/calendar";
 import {BsPersonCircle} from "react-icons/bs";
 import "./main_calendar.css";
 import "./Inquiries.css";
 
+/* hi
+hi again */
 
 export default function Inquiries () {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
