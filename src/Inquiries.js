@@ -13,8 +13,7 @@ import {BsPersonCircle} from "react-icons/bs";
 import "./main_calendar.css";
 import "./Inquiries.css";
 
-/* hi
-hi again */
+// hi
 
 export default function Inquiries () {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
