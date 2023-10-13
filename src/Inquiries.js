@@ -10,7 +10,7 @@ import './NavBar.css';
 import Calendar from "./utils/main_calendar";
 import { generateDate } from "./utils/calendar";
 import {BsPersonCircle} from "react-icons/bs";
-import "./main_calendar.css";
+import "./utils/main_calendar.css";
 import "./Inquiries.css";
 
 /* hi
