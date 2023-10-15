@@ -1,8 +1,4 @@
 import React, {useEffect} from "react";
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
 import { Divider } from "@mui/material";
 import FaqContent from "./FaqContent";
 import NavBarItem from "./NavBarItem";
@@ -18,20 +14,14 @@ export default function Inquiries () {
   // const days = ["S", "M", "T", "W", "T", "F", "S"];
   return (
           
-    <div className="App-body" >
+    <div className="Inquiries-body" >
       <div class = "flexbox-container"> 
-      {NavBarItem(3)}
-        
-          {/* <div class = "navbar-item"> navigation bar place holder </div>
-          <div class = "navbar-item"> navigation bar place holder </div>
-          <div class = "navbar-item"> navigation bar place holder </div>
-          <div class = "navbar-item"> navigation bar place holder </div>
-          <div class = "navbar-item"> navigation bar place holder </div> */}
-        
+      {NavBarItem(3)} 
       </div>
       
       
       <div className="content-container">
+        
         <div className="content-left">
           <FaqContent/>
         </div>
@@ -41,7 +31,7 @@ export default function Inquiries () {
         </div>
         
       </div>
-      {/* <div class="navBar">{NavBarItem(3)}</div> */}
+
       
 
         

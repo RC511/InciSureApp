@@ -1,19 +1,32 @@
-@import "@fontsource/lexend/700.css";
+@import '@fontsource/lexend';
 
 .navBar {
-    color: #01358C;
-    background-color: #E6EFFF;
+    display: flex;
+    flex-direction: flex-start;
+    justify-content: center ; 
     border-style:solid;
-    border-color:#01358C;
     margin-top: 0px;
     margin-left: 10%;
     margin-right: 10%;
     /* margin-bottom: 42px; */
     width: 80%;
     height: 36px;
-    font-size:18px;
-    text-align: center;
-    border-radius:8px;
+    font-size:16px;
     font-family: Lexend;
-    font-weight: 700;
+    font-weight: normal;
 }
+
+.flexbox-container{
+    display: flex;
+    flex-direction: flex-start;
+    justify-content: center ; 
+    align-content: center;
+    margin-top: 0px;
+    margin-right: 10%;
+    margin-left: 10%;
+    /* padding-top: 25px; */
+    padding-bottom: 0px;
+    height: 100px;
+    font-family: "Lexend";
+    font-size: 16px;
+  }

@@ -97,13 +97,14 @@
 
 .item{
     color: rgba(1, 53, 140, 0.51);
-    font-weight: 700;
+    margin-top: 24px;
+    font-weight: 600;
     font-size: 24px;
     margin-bottom:0;
 }
 .detail{
     color: #01358C;
-    font-weight: 700;
+    font-weight: 600;
     font-size:24px;
     margin-top:28px;
     margin-bottom: 32px;

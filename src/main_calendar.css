@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .calendar-container{
-  margin-top: 56px;
-  font-size: 9px;
+  margin-top: 0px;
+  /* font-size: 16px; */
 }
 
 .date-header{
@@ -13,6 +13,7 @@
   font-size: x-large;
   font-size: 24px;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .doctor-name{
