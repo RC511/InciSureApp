@@ -12,35 +12,38 @@ export default function NavBarItem(type) {
     const name3 = "Inquiries";
     const name4 = "Profile";
     return(
-        <div>
-            <div class="top">
-                a
+        // <div class = "flex justify-between">
+        //     {/* <div class= "flex">
+                
+        //     </div> */}
+            
+        // </div>
+
+        <div className=" flex border-2 border-blue-900 rounded-lg h-10 px-5 justify-around items-center w-full">
+            <div className="flex justify-center items-center">
+                <Link to="/" className= {`
+                ${(type === 1) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}  >
+                    <img className = "mr-2" src={dash} />
+                    <div> {name1}  </div>                  
+                </Link>
             </div>
-            <div class="bottom">
-                <div class="left">
-                    <Link to="/" class={(type == 1) ? "selectedItem" : "unselectedItem"}>
-                        <img class="pages" src={dash} height="20" />
-                        <span class="pages">{name1}</span>
-                    </Link>
-                </div>
-                <div class="middle">
-                    <Link to="/logs" class={(type == 2) ? "selectedItem" : "unselectedItem"}>
-                        <img class="pages" src={logs} height="20"  />
-                        <span class="pages">{name2}</span>
-                    </Link>
-                </div>
-                <div class="middle">
-                    <Link to="/inquiries" class={(type == 3) ? "selectedItem" : "unselectedItem"}>
-                        <img class="pages" src={inquiries} height="20"  />
-                        <span class="pages">{name3}</span>
-                    </Link>
-                </div>
-                <div class="right">
-                    <Link to="/profile" class={(type == 4) ? "selectedItem" : "unselectedItem"}>
-                        <img class="pages" src={profile} height="24"  />
-                        <span class="pages">{name4}</span>
-                    </Link>
-                </div>
+            <div className="flex justify-center items-center">
+                <Link to="/logs" className={` ${(type === 2) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}>
+                    <img className = "mr-2" src={logs}   />
+                    <div>{name2}</div>
+                </Link>
+            </div>
+            <div className="flex justify-center items-center">
+                <Link to="/inquiries" className= {`${(type === 3) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}>
+                    <img className = "mr-2" src={inquiries} /> 
+                    <div>{name3} </div>
+                </Link>
+            </div>
+            <div className="flex justify-center items-center">
+                <Link to="/profile" className={`${(type === 4) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}>
+                    <img className = "mr-2" src={profile}  />
+                    <div >{name4}</div>
+                </Link>
             </div>
         </div>
     );

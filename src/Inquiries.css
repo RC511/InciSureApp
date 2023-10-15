@@ -1,4 +1,77 @@
-.backgr {
-    background-color:#E6EFFF;
-    font-family: Lexend;
-}
+.flexbox-container{
+    display: flex;
+    flex-direction: flex-start;
+    justify-content: center ; 
+    align-content: center;
+    margin-right: 7.5%;
+    margin-left: 7.5%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    height: 100px;
+    font-family: "Lexend";
+    font-size: 16px;
+  }
+  
+  .navbar-item {
+    text-align: center;
+    line-height: 75px;
+    margin: 10px;
+    display: flex;
+  
+  }
+  
+  
+  .content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    margin-top: 0%;
+  }
+  
+  .content-left{
+    display: flex;
+    flex-direction: column;
+    flex: 65%;
+    padding: 20px;
+  
+  }
+  
+  .content-right{
+    display: flex;
+    flex-direction: column;
+    flex: 30%;
+    padding: 20px;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .content-left,.content-right {
+      flex: 100%
+    }
+  }
+  
+  @media screen and (min-width: 1200px) and (max-width: 1500px){
+    .content-left {
+      display: flex;
+      flex-direction: column;
+      flex: 50%;
+      padding: 20px;
+    }
+    
+  }
+  
+  /* 
+  .flexbox-item-1 {
+  min-height: 100px;
+  width: 200px;
+  }
+  
+  .flexbox-item-2 {
+    min-height: 100px;
+    width: 200px;
+    flex-grow: 2;
+    }
+     */
+  
