@@ -1,12 +1,13 @@
 import React, {useEffect} from "react";
 import { Divider } from "@mui/material";
 import FaqContent from "./FaqContent";
-import NavBarItem from "./NavBarItem";
-//import '../NavBar/NavBar.css';
-import Calendar from "./main_calendar";
+
+import NavBarItem from "./NavBarItem.js";
+import './NavBar.css';
+import Calendar from "./utils/main_calendar";
 import { generateDate } from "./utils/calendar";
 import {BsPersonCircle} from "react-icons/bs";
-import "./main_calendar.css";
+import "./utils/main_calendar.css";
 import "./Inquiries.css";
 
 

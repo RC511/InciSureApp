@@ -33,7 +33,7 @@ export default function Home() {
             <div class="navBar">
                 {NavBarItem(1)}
             </div>
-            <div style={{margin: "48px"}}>
+            <div style={{marginTop: "48px"}}>
                 <div class="upper">
                     <div class="upleft">
                         a

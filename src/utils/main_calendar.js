@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import React, { useState } from "react";
-import { generateDate, months } from "./utils/calendar";
-import cn from "./utils/cn";
+import { generateDate, months } from "./calendar";
+import cn from "./cn";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import "./main_calendar.css";
 import {BsPersonCircle} from "react-icons/bs";

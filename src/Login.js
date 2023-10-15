@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 // async function loginUser(credentials) {
 //  return fetch('./users.json', {
@@ -34,11 +35,11 @@ async function loginUser(name, pass) {
 
   const database = [
     {
-      username: "user1",
+      username: "user1@mail.com",
       password: "pass1"
     },
     {
-      username: "user2",
+      username: "user2@mail.com",
       password: "pass2"
     }
   ];
@@ -64,6 +65,7 @@ async function loginUser(name, pass) {
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [remember, setRemember] = useState(false);
   const [errType, setErr] = useState(0);
 
   const handleSubmit = async e => {
@@ -79,7 +81,7 @@ export default function Login({ setToken }) {
     }
     else if (token.length == 10)
     {
-      setToken(JSON.parse("{\"token\":\""+token+"\"}"))
+      setToken(remember, JSON.parse("{\"token\":\""+token+"\"}"))
     }
     else
     {
@@ -93,17 +95,24 @@ export default function Login({ setToken }) {
       <h1 class="h1Login">Please Log In</h1>
       <form onSubmit={handleSubmit}>
         <label class="labelClass">
-          <p class="pLogin">Username</p>
-          <input class="inClass" type="text" onChange={e => setUserName(e.target.value)} required />
-          { (errType == 1) && <p>Username not found</p>}
+          <p class="pLogin">Email</p>
+          <input class="inClass" type="email" onChange={e => setUserName(e.target.value)} required />
+          { (errType == 1) && <p>User with email not found</p>}
         </label>
         <label class="labelClass">
           <p class="pLogin">Password</p>
           <input class="inClass" type="password" onChange={e => setPassword(e.target.value)} required />
           { (errType == 2) && <p>Invalid password</p>}
         </label>
+        <span>
+          <input type="checkbox" id="rememberme" name="rememberme" onChange={e =>setRemember(e.target.checked)} />
+          <label for="rememberme">Remember credentials</label>
+          <Link to="/forgotpswd">
+            Forgot password
+          </Link>
+        </span>
         <div class="submitDiv">
-          <button type="submit" class="submitButton">SUBMIT</button>
+          <button type="submit" class="submitButton">LOG IN</button>
         </div>
         { (errType == 3) && <p>err</p>}
       </form>
