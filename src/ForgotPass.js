@@ -1,18 +1,21 @@
 import '@fontsource/lexend';
 import { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 
 async function findUser(name) {
     let found = false;
+    let realname = "";
 
     const database = [
         {
-          username: "user1",
+          username: "ryokusnadi2@gmail.com",
+          realname: "First User",
           password: "pass1"
         },
         {
-          username: "user2",
+          username: "user2@mail.com",
+          realname: "Second User",
           password: "pass2"
         }
       ];
@@ -22,56 +25,70 @@ async function findUser(name) {
       // Compare user info
       if (userData) {
         found = true;
+        realname = userData.realname;
       } else {
         // Username not found
         found = false;
       }
     
-      return found;
+      return {found, realname};
 }
 
 export default function ForgotPass() {
     const [username, setUserName] = useState();
     const [dispErr, setDispErr] = useState(false);
+    const navPage = useNavigate();
   
-    // const emailRef = useRef<HTMLInputElement>();
-    // const nameRef = useRef<HTMLInputElement>();
-    // const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    // useEffect(() => emailjs.init("YOUR-PUBLIC-KEY-HERE"), []);
-    // const handleSubmit = async (e) => {
-    //   e.preventDefault();
-    //   const serviceId = "YOUR-SERVICE-ID-HERE";
-    //   const templateId = "YOUR-TEMPLATE-ID-HERE"";
-    //   try {
-    //     setLoading(true);
-    //     await emailjs.send(serviceId, templateId, {
-    //     name: nameRef.current.value,
-    //       recipient: emailRef.current.value
-    //     });
-    //     alert("email successfully sent check inbox");
-    //   } catch (error) {
-    //     console.log(error);
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
-    // https://www.telerik.com/blogs/sending-emails-react-app-using-emailjs
-    // https://www.npmjs.com/package/@emailjs/browser
-
-    const handleSubmit = async e => {
+    useEffect(() => emailjs.init("PAK9XzziKGpdJa5yn"), []);
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      const found = await findUser(username);
+      const {found, realname} = await findUser(username);
       if (found)
       {
         // Send Email
-        alert("Email sent!");
+        const serviceId = "service_b09wvan";
+        const templateId = "template_qaqtu48";
+        const emailContents = "test"
+        const templateFields = {
+          recipient: username,
+          name: realname,
+          message: emailContents,
+        }
+        try {
+          setLoading(true);
+          await emailjs.send(serviceId, templateId, templateFields);
+          alert("Email sent!");
+          navPage("/");
+        } catch (error) {
+          alert(error);
+        } finally {
+          setLoading(false);
+        }
       }
       else
       {
         setDispErr(true);
       }
-    }
+      
+    };
+    // https://www.telerik.com/blogs/sending-emails-react-app-using-emailjs
+    // https://www.npmjs.com/package/@emailjs/browser
+
+    // const handleSubmit = async e => {
+    //   e.preventDefault();
+    //   const found = await findUser(username);
+    //   if (found)
+    //   {
+    //     // Send Email
+    //     alert("Email sent!");
+    //   }
+    //   else
+    //   {
+    //     setDispErr(true);
+    //   }
+    // }
 
     return(
         <div class="logDiv">
@@ -84,7 +101,7 @@ export default function ForgotPass() {
                 { dispErr && <p>User with email not found</p>}
                 </label>
                 <div class="submitDiv">
-                <button type="submit" class="submitButton">SUBMIT</button>
+                <button type="submit" class="submitButton" disabled={loading}>SUBMIT</button>
                 </div>
                 <Link to="/">
                   Cancel
