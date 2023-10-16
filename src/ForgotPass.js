@@ -1,7 +1,8 @@
 import '@fontsource/lexend';
 import { useRef, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Route, Switch, BrowserRouter} from 'react-router-dom';
 import emailjs from '@emailjs/browser';
+import ChangePass from './ChangePass.component';
 
 
 async function findUser(name) {
@@ -107,8 +108,17 @@ export default function ForgotPass() {
                 <Link to="/">
                   Cancel
                 </Link>
-               
+                {/* <Link to="/changepswd">
+                  reset_pass
+                </Link> */}
                 
+
+                <Link to= {'/changepswd'} >resetPassword</Link>
+                  
+                
+                
+
+              
             </form>
         </div>
     );

@@ -8,8 +8,10 @@ import Inquiries from './Inquiries.js';
 import useToken from './TokenHandler.js';
 import ForgotPass from './ForgotPass';
 import ChangePass from './ChangePass';
+//import ChangePass from './ChangePass.component';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import '@fontsource/lexend';
 
 /* Code to check if app is being opened on mobile or desktop
@@ -60,6 +62,7 @@ function LoginPages({tokenFunc}) {
         <Route path="/" element={<Login setToken={tokenFunc} />} />
         <Route path="/forgotpswd" element={<ForgotPass />} />
         <Route path="/changepswd" element={<ChangePass />} />
+        {/* <Route exact path= '/changepswd' component = {ChangePass}/> */}
       </Routes>
     </BrowserRouter>
   );
