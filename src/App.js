@@ -7,6 +7,7 @@ import Logs from './Logs.js';
 import Inquiries from './Inquiries.js';
 import useToken from './TokenHandler.js';
 import ForgotPass from './ForgotPass';
+import ChangePass from './ChangePass';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import '@fontsource/lexend';
@@ -58,7 +59,7 @@ function LoginPages({tokenFunc}) {
       <Routes>
         <Route path="/" element={<Login setToken={tokenFunc} />} />
         <Route path="/forgotpswd" element={<ForgotPass />} />
-        <Route path="/changepswd" element={<ForgotPass />} />
+        <Route path="/changepswd" element={<ChangePass />} />
       </Routes>
     </BrowserRouter>
   );

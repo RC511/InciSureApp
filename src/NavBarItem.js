@@ -24,25 +24,25 @@ export default function NavBarItem(type) {
                 <Link to="/" className= {`
                 ${(type === 1) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}  >
                     <img className = "mr-2" src={dash} />
-                    <div> {name1}  </div>                  
+                    <div className='navItem'> {name1}  </div>                  
                 </Link>
             </div>
             <div className="flex justify-center items-center">
                 <Link to="/logs" className={` ${(type === 2) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}>
                     <img className = "mr-2" src={logs}   />
-                    <div>{name2}</div>
+                    <div className='navItem'>{name2}</div>
                 </Link>
             </div>
             <div className="flex justify-center items-center">
                 <Link to="/inquiries" className= {`${(type === 3) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}>
                     <img className = "mr-2" src={inquiries} /> 
-                    <div>{name3} </div>
+                    <div className='navItem'>{name3} </div>
                 </Link>
             </div>
             <div className="flex justify-center items-center">
                 <Link to="/profile" className={`${(type === 4) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}>
                     <img className = "mr-2" src={profile}  />
-                    <div >{name4}</div>
+                    <div className='navItem'>{name4}</div>
                 </Link>
             </div>
         </div>

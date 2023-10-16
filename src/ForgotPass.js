@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 
+
 async function findUser(name) {
     let found = false;
     let realname = "";
@@ -106,6 +107,8 @@ export default function ForgotPass() {
                 <Link to="/">
                   Cancel
                 </Link>
+               
+                
             </form>
         </div>
     );

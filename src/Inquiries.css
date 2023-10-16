@@ -11,33 +11,14 @@
     align-content: center;
     margin-right: 10%;
     margin-left: 10%;
-    padding-top: 25px;
+    padding-top: 24px;
     padding-bottom: 0px;
     height: 100px;
     font-family: "Lexend";
     font-size: 16px;
+    
   }
   
-  .navBar {
-    color: #01358C;
-    background-color: #E6EFFF;
-    border-style:solid;
-    border-color:#01358C;
-    margin-top: 0px;
-    margin-left: 10%;
-    margin-right: 10%;
-    /* margin-bottom: 42px; */
-    width: 80%;
-    height: 36px;
-    font-size:18px;
-    text-align: center;
-    border-radius:8px;
-    font-family: Lexend;
-    font-weight: 700;
-    
-}
-
-
 
   .navbar-item {
     text-align: center;
