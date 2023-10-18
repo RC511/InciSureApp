@@ -8,4 +8,4 @@ y = np.sin(x)
 #
 
 tempFig = plt.plot(x, y)
-plt.savefig("./src/assets/tempPlot.png")
+plt.savefig("./assets/tempPlot.png")
