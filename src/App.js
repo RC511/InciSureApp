@@ -11,8 +11,10 @@ import ChangePass from './ChangePass';
 //import ChangePass from './ChangePass.component';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {ArduinoIoTCloud} from 'arduino-iot-js';
 
 import '@fontsource/lexend';
+
 
 /* Code to check if app is being opened on mobile or desktop
 const [width, setWidth] = useState<number>(window.innerWidth);
