@@ -10,7 +10,7 @@ import ForgotPass from './ForgotPass';
 import ChangePass from './ChangePass';
 //import ChangePass from './ChangePass.component';
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import {ArduinoIoTCloud} from 'arduino-iot-js';
 
 import '@fontsource/lexend';
@@ -31,8 +31,6 @@ useEffect(() => {
 
 const isMobile = width <= 768;
 */
-
-
 
 function MobilePages() {
   return (
@@ -63,7 +61,7 @@ function LoginPages({tokenFunc}) {
       <Routes>
         <Route path="/" element={<Login setToken={tokenFunc} />} />
         <Route path="/forgotpswd" element={<ForgotPass />} />
-        <Route path="/changepswd" element={<ChangePass />} />
+        {/* <Route path="/changepswd" element={<ChangePass />} /> */}
         {/* <Route exact path= '/changepswd' component = {ChangePass}/> */}
       </Routes>
     </BrowserRouter>

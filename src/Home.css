@@ -1,17 +1,89 @@
-@import "@fontsource/lexend/700.css";
 
-div.back {
-    background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
-    align-content:  center;
-    align-items:   center;
-    text-align: center;
-    font-family: Lexend;
+
+.HomePage {
+    background: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
+    font-family: lexend ;
+
 }
 
-h1.greeting {
-    color: #01358C;
+.HomeContainer {
+    display: flex;
+    padding-top: 24px;
+    flex-direction: column;
+    justify-content: center ; 
+    align-content: center;
+    
 }
 
+.navBar-item{
+    display: flex;
+
+}
+
+.condition-status{
+    color:rgb(22, 195, 22);
+}
+
+
+.upper-container {
+    color:#01358C;
+    margin-top: 24px;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.upper-heading2{
+    font-size: x-large;
+    font-weight: 700;
+    margin-top: 10px;
+
+}
+.upper-left{
+    display: flex;
+    flex-direction: column;
+    flex: 20%;
+}
+.upper-mid{
+    display: flex;
+    flex-direction: column;
+    flex: 60%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+.upper-right{
+    display: flex;
+    flex-direction: row;
+    flex: 20%;
+    padding: 20px;   
+    justify-items: center ;
+}
+
+.lower-container{
+    color:#01358C;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.lower-left{
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.lower-mid{
+
+}
 h2.status {
     color: #01358C;
 }
@@ -19,17 +91,12 @@ h2.status {
 p.lUpdate {
     opacity: 0.42;
     font-size: 16px;
-    margin-top: 5px;
     font-weight: 500;
 }
 
-span.statusColouring {
-    color: green;
-}
 
-div.upper {
-    width: 100%;
-}
+
+
 
 div.upleft {
     width: 28%;

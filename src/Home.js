@@ -7,6 +7,8 @@ import logOutSign from './assets/log-out-01.png';
 import './Home.css';
 import './NavBar.css';
 import NavBarItem from './NavBarItem.js';
+import { BsFillCalendarEventFill } from "react-icons/bs";
+import React from 'react';
 
 function getDate() {
     const today = new Date();
@@ -29,33 +31,46 @@ function logOut() {
 
 export default function Home() {
     return (
-        <div class="back">
-            <br></br>
-            <div class="navBar">
-                {NavBarItem(1)}
-            </div>
-            <div style={{marginTop: "48px"}}>
-                <div class="upper">
-                    <div class="upleft">
-                        a
-                    </div>
-                    <div class="upmid">
-                        <h1 class="greeting">WELCOME, Patient</h1>
-                        <h2 class="status">Your wound is doing <span class="statusColouring">WELL</span>!</h2>
-                    </div>
-                    <div class="upright">
-                        <img src={calendar} height="24px" /> <span style={{fontWeight: "bold"}}>{getDate()}</span>
-                        <p class="lUpdate">Last updated...</p>
-                    </div>
+        <div className="HomePage">
+            <div className='HomeContainer'>
+                <div className="navBar">
+                    {NavBarItem(1)}
                 </div>
-                <div class="lower">
-                    <div class="loside">
-                        <div class="tempBox">
+                <div className="upper-container">
+                    <div className='upper-left'>
+                        
+                    </div>
+                    <div className="upper-mid">
+                        <h1 className='font-bold text-3xl'>WELCOME, Patient</h1>
+                        <h2 className='upper-heading2'>Your wound is doing <span className='condition-status'>WELL</span>!</h2>
+                    </div>
+                    <div className='upper-right'>
+                        <div className='flex px-2  justify-items-center'>
+                            <BsFillCalendarEventFill size={20}/> 
+                        </div>
+                        <div>
+                            <span> {getDate()}</span>
+                            <p class="lUpdate">Last updated...</p>
+                        </div>
+                            
+                    </div>
+
+                </div>
+                <div class="lower-container">
+                    <div className="lower-left flex rounded-3xl bg-white shadow-2xl w-1/4">
                             <p class="tempFiller">a</p>
                             <p class="tempName">Temperature</p>
                             <p class="tempValue">37.5°C</p>
-                        </div>
+                        
                     </div>
+                    <div className ="lower-mid">
+                        <img src={maleHappy} width="85%" />
+                    </div>
+                </div>
+                
+                    {/* 
+                </div>
+                
                     <div class="lomid">
                         <img src={maleHappy} width="85%" />
                     </div>
@@ -74,26 +89,10 @@ export default function Home() {
                                 <img src={logOutSign} /> Log Out
                             </button>
                         </div>
-                    </div>
-                </div>
-                {/* <header className="App-header"> */}
-                {/* <header>
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                        >
-                        <Link to='/about'>Nevermind</Link>
-                    </a>
-                    <button onClick={localStorage.removeItem("token")}>
-                        remove token
-                    </button>
-                </header> */}
+                    </div> */}
+                
+
+ 
             </div>
             
         </div>
