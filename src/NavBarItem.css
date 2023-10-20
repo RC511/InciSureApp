@@ -1,3 +1,14 @@
+
+.nav{
+    transition: .3s;
+}
+.sticky-nav{
+    background: rgb(209, 224, 255);
+}
+
+
+
+
 .selectedItem {
     opacity: 100%;
     margin: auto;

@@ -58,14 +58,16 @@ export default function Home() {
                 </div>
                 <div class="lower-container">
                     <div className='lower-left'>
-                        <div className="inner-lower-left flex rounded-3xl bg-white shadow-2xl items-center justify-items-center">
+                        <div className="inner-lower-left flex rounded-3xl bg-white shadow-2xl ">
                             <p className="tempName">Temperature</p>
                             <p className="tempValue">37.5°C</p>
                         </div>
                     </div>
                     
                     <div className ="lower-mid">
-                        <img src={maleHappy} />
+                        <div className = "lower-mid-content">
+                            <img src={maleHappy} />
+                        </div>
                     </div>
                     <div className='lower-right'>
                         <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl items-center justify-items-center">

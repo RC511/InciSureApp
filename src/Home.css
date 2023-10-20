@@ -77,6 +77,8 @@
 .lower-left{
     flex-direction: column;
     flex: 20%;
+    align-items: center;
+    justify-items: center;
 }
 
 .inner-lower-left{
@@ -85,7 +87,7 @@
     align-items: center;
     justify-items: center;
     padding: 15px;
-    width: auto;
+    /* width: 90%; */
 }
 
 .tempName {
@@ -103,12 +105,20 @@
 
 .lower-mid{
     flex-direction: column;
-    flex: 50%;
-    align-items: center;
-    padding-left: 4%;
+    flex: 60%;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    /* padding-left: 4%; */
 }
 
-img {max-width:100%;}
+.lower-mid-content{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+}
+/* img {max-width:100%;} */
 
 .lower-right{
     flex-direction: column;
@@ -123,7 +133,7 @@ img {max-width:100%;}
     padding: 15px;
     border-style: solid;
     border-color: #9CADCA;
-    width: auto;
+    /* width: 90%; */
 }
 
 .dayCount{
@@ -138,6 +148,20 @@ img {max-width:100%;}
     font-size: xx-large;
     color: #01358C;
 }
+
+@media screen and (min-width: 1200px) and (max-width: 1500px){
+    .content-left {
+      display: flex;
+      flex-direction: column;
+      flex: 50%;
+      padding: 20px;
+    }
+    
+  }
+
+
+
+
 
 p.lUpdate {
     opacity: 0.42;
@@ -247,3 +271,4 @@ button.logOutBtn {
     cursor: pointer;
     display: inline-block;
 }
+

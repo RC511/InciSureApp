@@ -4,6 +4,7 @@ import logs from './assets/logs.png';
 import inquiries from './assets/inquiries.png';
 import profile from './assets/profile.png';
 import {Link} from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export default function NavBarItem(type) {
     if (!type) type = 1;
@@ -11,6 +12,16 @@ export default function NavBarItem(type) {
     const name2 = "Medical Logs";
     const name3 = "Inquiries";
     const name4 = "Profile";
+    const[ sticky, setSticky ] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setSticky(window.scrollY>500)
+        }
+        window.addEventListener('scroll', handleScroll)
+
+        return () => window.removeEventListener('scroll', handleScroll)
+    })
     return(
         // <div class = "flex justify-between">
         //     {/* <div class= "flex">
@@ -18,8 +29,8 @@ export default function NavBarItem(type) {
         //     </div> */}
             
         // </div>
-
-        <div className=" flex border-2 border-blue-900 rounded-lg h-10 px-5 justify-around items-center w-full">
+        
+        <div className= {`${sticky ? 'sticky': ""} fixed top-5 flex border-2 border-blue-900 rounded-lg h-10 px-5 justify-around items-center w-4/5 `}>
             <div className="flex justify-center items-center">
                 <Link to="/" className= {`
                 ${(type === 1) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}  >
@@ -46,5 +57,6 @@ export default function NavBarItem(type) {
                 </Link>
             </div>
         </div>
+        
     );
 }
