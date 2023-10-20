@@ -45,20 +45,20 @@ export default function Logs() {
                 {NavBarItem(2)}
             </div>
             <main class="containerLogs">
-                <main class="containerData">
-                    <div class="tempData">
-                        36.5°
-                    </div>
-                    <div class="impData">
-                        4MΩ
-                    </div>
-                </main>
-                <main class="containerPlot">
-                    <div class="tempPlot">
+                <main class="containerTemp">
+                    <div class="Plot">
                         <TempChart chartData={chartData1} />
                     </div>
-                    <div class="tempPlot">
+                    <div class="Data">
+                        36.5°C
+                    </div>
+                </main>
+                <main class="containerImp">
+                    <div class="Plot">
                         <ImpChart chartData={chartData2} />
+                    </div>
+                    <div class="Data">
+                        4MΩ
                     </div>
                 </main>
             </main>

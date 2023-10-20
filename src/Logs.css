@@ -4,28 +4,45 @@
 }
 
 .containerLogs{
-    max-width: 90%;
-    border: 1px solid #000;
+    max-width: 100%;
+    /* border: 1px solid #000; */
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    margin: 10%;
+    gap: 40px;
+}
+
+.containerTemp{
+    /* border: 1px solid #d40909; */
+    display: flex;
     flex-wrap: wrap;
-
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
 }
 
-.containerData{
-    border: 1px solid #d40909;
+.containerImp{
+    /* border: 1px solid #28b628; */
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
 }
 
-.containerPlot{
-    border: 1px solid #28b628;
-    display: flex;
-    flex-direction: column;
+.Plot{
+    min-width: 70%;
 }
 
-.tempData{
+.Data{
+    font-size: 35px;
+    background: #F4F8FF;
     border: 3px solid rgba(0, 0, 0, 0.05); 
     border-radius: 42px;
     box-shadow: 4px 4px 13px rgba(0, 0, 0, 0.25);
+    color: #01358C;
+    min-width: 180px;
+    position: relative;
+    text-align: center;
+    padding: 40px 0;
 }
