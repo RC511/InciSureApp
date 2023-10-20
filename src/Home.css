@@ -76,15 +76,66 @@
 
 .lower-left{
     flex-direction: column;
-    align-items: center;
-    padding: 10px;
+    flex: 20%;
+}
 
+.inner-lower-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    padding: 15px;
+    width: auto;
+}
+
+.tempName {
+    font-weight: bold;
+    font-size: xx-large;
+    color: #01358C;
+    
+}
+
+.tempValue {
+    font-weight: bold;
+    font-size: 72px;
+    color: #01358C;
 }
 
 .lower-mid{
-
+    flex-direction: column;
+    flex: 50%;
+    align-items: center;
+    padding-left: 4%;
 }
-h2.status {
+
+img {max-width:100%;}
+
+.lower-right{
+    flex-direction: column;
+    flex: 20%
+}
+
+.inner-lower-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    padding: 15px;
+    border-style: solid;
+    border-color: #9CADCA;
+    width: auto;
+}
+
+.dayCount{
+    font-weight: bold;
+    font-size: 72px;
+    color: #01358C;
+    
+}
+
+.dayText {
+    font-weight: bold;
+    font-size: xx-large;
     color: #01358C;
 }
 
@@ -146,16 +197,6 @@ div.lower:after {
     clear: both;
 }
 
-div.tempBox {
-    margin-top: 50px;
-    width: 70%;
-    height: 200px;
-    background-color: #F4F8FF;
-    margin-left: 15%;
-    margin-right: 15%;
-    border-radius: 20px;
-    box-shadow: 9px 8px 4px 1px rgba(0, 0, 0, 0.5);
-}
 
 p.tempFiller {
     margin-bottom: 0px;
@@ -163,19 +204,7 @@ p.tempFiller {
     opacity: 0;
 }
 
-p.tempName {
-    font-weight: bold;
-    font-size: 24px;
-    color: #01358C;
-    margin-bottom: 0;
-}
 
-p.tempValue {
-    margin-top: 0;
-    font-weight: bold;
-    font-size: 72px;
-    color: #01358C;
-}
 
 div.calBox {
     margin-top: 50px;
@@ -200,19 +229,7 @@ div.calBot {
     color:#01358C;
 }
 
-p.dayCount {
-    font-size: 72px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 0;
-}
 
-p.dayText {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 5px;
-    margin-bottom: 30px;
-}
 
 div.logOut {
     margin-top: 50%;

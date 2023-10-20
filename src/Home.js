@@ -57,14 +57,22 @@ export default function Home() {
 
                 </div>
                 <div class="lower-container">
-                    <div className="lower-left flex rounded-3xl bg-white shadow-2xl w-1/4">
-                            <p class="tempFiller">a</p>
-                            <p class="tempName">Temperature</p>
-                            <p class="tempValue">37.5°C</p>
-                        
+                    <div className='lower-left'>
+                        <div className="inner-lower-left flex rounded-3xl bg-white shadow-2xl items-center justify-items-center">
+                            <p className="tempName">Temperature</p>
+                            <p className="tempValue">37.5°C</p>
+                        </div>
                     </div>
+                    
                     <div className ="lower-mid">
-                        <img src={maleHappy} width="85%" />
+                        <img src={maleHappy} />
+                    </div>
+                    <div className='lower-right'>
+                        <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl items-center justify-items-center">
+                            <p className="dayCount">16</p>
+                                <p className="dayText">Days</p>
+                        </div>
+
                     </div>
                 </div>
                 
