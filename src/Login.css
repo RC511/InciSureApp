@@ -23,9 +23,7 @@
 }
 
 .logDiv {
-    /* margin-top: 0%; */
     background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
-    /* object-fit: fill; */
 }
 
 .inClass {
@@ -44,14 +42,14 @@
     margin-bottom: 30px;
 }
 
-.h1Login {
+h1.login {
     color: #00286B;
     text-align: center;
     font-family: Lexend;
     font-size: 64px;
     font-style: normal;
     font-weight: 700;
-    line-height: 64px; /* 64% */
+    line-height: 64px;
     letter-spacing: -0.25px;
 }
 
@@ -61,10 +59,38 @@
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
-    /* line-height: 64px; */
     letter-spacing: -0.25px;
     margin-top: 30px;
     margin-left: 35%;
+}
+
+.passSpan {
+    margin-top: 25px;
+}
+
+.remembBox {
+    margin-left: 35%;
+}
+
+.remembText {
+    color: #00286B;
+    font-family: Lexend;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+}
+
+.forgotPass {
+    color: #00286B;
+    font-family: Lexend;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+    margin-left: 13%;
+    margin-right: 35%;
+    text-align: right;
 }
 
 body {

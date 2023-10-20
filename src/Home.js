@@ -21,6 +21,7 @@ function getDate() {
 
 function logOut() {
     localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     window.location.reload(true);
 }
 
