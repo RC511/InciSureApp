@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import emailjs from '@emailjs/browser';
 import "./ForgotPass.css";
+import app from './firebase';
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 export default function ForgotPass() {
@@ -13,7 +14,7 @@ export default function ForgotPass() {
     const handleSubmit = async e => {
       e.preventDefault();
       setLoading(true);
-      const auth = getAuth();
+      const auth = getAuth(app);
       await sendPasswordResetEmail(auth, username)
         .then(() => {
           alert("Password reset email sent!");
