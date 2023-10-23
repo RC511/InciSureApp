@@ -30,10 +30,10 @@ export default function NavBarItem(type) {
             
         // </div>
         
-        <div className= {`${sticky ? 'sticky': ""} fixed top-5 flex border-2 border-blue-900 rounded-lg h-10 px-5 justify-around items-center w-4/5 `}>
+        <div className= {`${sticky ? 'sticky': ""} fixed top-5 flex border-2 border-blue-900 rounded-lg h-10 px-5 justify-around items-center w-4/5 bg-inherit`}>
             <div className="flex justify-center items-center">
                 <Link to="/" className= {`
-                ${(type === 1) ? "selectedItem" : "unselectedItem"} flex justify-center items-center`}  >
+                ${(type === 1) ? "selectedItem" : "unselectedItem"} flex justify-center items-center cursor-pointer`}  >
                     <img className = "mr-2" src={dash} />
                     <div className='navItem'> {name1}  </div>                  
                 </Link>

@@ -70,15 +70,17 @@
     margin-left: 10%;
     margin-right: 10%;
     flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+    
 }
 
 .lower-left{
+    display: flex;
     flex-direction: column;
     flex: 20%;
     align-items: center;
-    justify-items: center;
+    /* justify-items: center; */
+    justify-content: center;
 }
 
 .inner-lower-left{
@@ -87,6 +89,7 @@
     align-items: center;
     justify-items: center;
     padding: 15px;
+    max-width: 280px;
     /* width: 90%; */
 }
 
@@ -118,11 +121,21 @@
     display: flex;
     
 }
+
+.img-responsive {
+    max-width: 100%;  
+}
 /* img {max-width:100%;} */
 
 .lower-right{
+    display: flex;
     flex-direction: column;
-    flex: 20%
+    flex: 20%;
+    align-items: center;
+    /* justify-items: center; */
+    justify-content: center;
+    gap: 2rem;
+    justify-self: center;
 }
 
 .inner-lower-right{
@@ -133,6 +146,12 @@
     padding: 15px;
     border-style: solid;
     border-color: #9CADCA;
+    width: 280px;
+    
+    
+    /* width: 90%; */
+    /* height: 180px; */
+    
     /* width: 90%; */
 }
 
@@ -149,16 +168,60 @@
     color: #01358C;
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1500px){
-    .content-left {
+.logOut {
+    display: flex;
+    align-self: flex-end;
+    margin-top: auto;
+    
+}
+
+.logOutBtn {
+    font-size: 24px;
+    font-weight: bold;
+    color:#01358C;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+   
+
+}
+
+
+@media screen and (max-width: 1200px){
+    .upper-container {
       display: flex;
       flex-direction: column;
-      flex: 50%;
+      flex: 80%;
       padding: 20px;
+      align-items: center;
     }
     
+
   }
 
+@media screen and (max-width: 1100px){
+    .lower-container {
+        display: flex;
+        flex-direction: column;
+        flex: 80%;
+        padding: 20px;
+        align-items: center;
+        gap: 3rem;
+      }
+
+    .img-responsive {
+        max-width: 75%;  
+    }
+
+    .logOutBtn {
+        justify-items: center; /* Center the button horizontally */
+        margin: 0 auto; /* Center the button vertically */
+        
+    }
+
+}
 
 
 
@@ -255,20 +318,7 @@ div.calBot {
 
 
 
-div.logOut {
-    margin-top: 50%;
-    text-align: right;
-    
-}
 
-button.logOutBtn {
-    font-size: 24px;
-    font-weight: bold;
-    color:#01358C;
-    border: none;
-    background-color: inherit;
-    padding: 14px 28px;
-    cursor: pointer;
-    display: inline-block;
-}
+
+
 

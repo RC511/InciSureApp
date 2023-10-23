@@ -8,6 +8,7 @@ import './Home.css';
 import './NavBar.css';
 import NavBarItem from './NavBarItem.js';
 import { BsFillCalendarEventFill } from "react-icons/bs";
+import {MdLogout} from "react-icons/md";
 import React from 'react';
 
 function getDate() {
@@ -66,13 +67,19 @@ export default function Home() {
                     
                     <div className ="lower-mid">
                         <div className = "lower-mid-content">
-                            <img src={maleHappy} />
+                            <img src={maleHappy} className="img-responsive" alt="Male Happy"/>
                         </div>
                     </div>
-                    <div className='lower-right'>
-                        <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl items-center justify-items-center">
+                    <div className='lower-right '>
+                        <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl">
                             <p className="dayCount">16</p>
-                                <p className="dayText">Days</p>
+                            <p className="dayText">Days</p>
+                        </div>
+                        <div className="logOut">
+                            <button onClick={() => {logOut()}} className="logOutBtn">
+                                <MdLogout size={30}/>  
+                                <span>Log Out</span>
+                            </button>
                         </div>
 
                     </div>
