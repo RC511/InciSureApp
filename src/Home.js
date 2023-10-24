@@ -32,86 +32,88 @@ function logOut() {
 
 export default function Home() {
     return (
-        <div className="HomePage">
-            <div className='HomeContainer'>
-                <div className="navBar">
-                    {NavBarItem(1)}
-                </div>
-                <div className="upper-container">
-                    <div className='upper-left'>
-                        
+        <div className='HomeHome'>
+            <div className="HomePage">
+                <div className='HomeContainer'>
+                    <div className="navBar">
+                        {NavBarItem(1)}
                     </div>
-                    <div className="upper-mid">
-                        <h1 className='font-bold text-3xl'>WELCOME, Patient</h1>
-                        <h2 className='upper-heading2'>Your wound is doing <span className='condition-status'>WELL</span>!</h2>
-                    </div>
-                    <div className='upper-right'>
-                        <div className='flex px-2  justify-items-center'>
-                            <BsFillCalendarEventFill size={20}/> 
-                        </div>
-                        <div>
-                            <span> {getDate()}</span>
-                            <p class="lUpdate">Last updated...</p>
-                        </div>
+                    <div className="upper-container">
+                        <div className='upper-left'>
                             
-                    </div>
+                        </div>
+                        <div className="upper-mid">
+                            <h1 className='font-bold text-3xl'>WELCOME, Patient</h1>
+                            <h2 className='upper-heading2'>Your wound is doing <span className='condition-status'>WELL</span>!</h2>
+                        </div>
+                        <div className='upper-right'>
+                            <div className='flex px-2  justify-items-center'>
+                                <BsFillCalendarEventFill size={20}/> 
+                            </div>
+                            <div>
+                                <span> {getDate()}</span>
+                                <p class="lUpdate">Last updated...</p>
+                            </div>
+                                
+                        </div>
 
-                </div>
-                <div class="lower-container">
-                    <div className='lower-left'>
-                        <div className="inner-lower-left flex rounded-3xl bg-white shadow-2xl ">
-                            <p className="tempName">Temperature</p>
-                            <p className="tempValue">37.5°C</p>
+                    </div>
+                    <div class="lower-container">
+                        <div className='lower-left'>
+                            <div className="inner-lower-left flex rounded-3xl bg-white shadow-2xl ">
+                                <p className="tempName">Temperature</p>
+                                <p className="tempValue">37.5°C</p>
+                            </div>
+                        </div>
+                        
+                        <div className ="lower-mid">
+                            <div className = "lower-mid-content">
+                                <img src={maleHappy} className="img-responsive" alt="Male Happy"/>
+                            </div>
+                        </div>
+                        <div className='lower-right '>
+                            <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl">
+                                <p className="dayCount">16</p>
+                                <p className="dayText">Days</p>
+                            </div>
+                            <div className="logOut">
+                                <button onClick={() => {logOut()}} className="logOutBtn">
+                                    <MdLogout size={30}/>  
+                                    <span>Log Out</span>
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                     
-                    <div className ="lower-mid">
-                        <div className = "lower-mid-content">
-                            <img src={maleHappy} className="img-responsive" alt="Male Happy"/>
-                        </div>
+                        {/* 
                     </div>
-                    <div className='lower-right '>
-                        <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl">
-                            <p className="dayCount">16</p>
-                            <p className="dayText">Days</p>
+                    
+                        <div class="lomid">
+                            <img src={maleHappy} width="85%" />
                         </div>
-                        <div className="logOut">
-                            <button onClick={() => {logOut()}} className="logOutBtn">
-                                <MdLogout size={30}/>  
-                                <span>Log Out</span>
-                            </button>
-                        </div>
+                        <div class="loside">
+                            <div class="calBox">
+                                <div class="calTop">
+                                    
+                                </div>
+                                <div class="calBot">
+                                    <p class="dayCount">16</p>
+                                    <p class="dayText">Days</p>
+                                </div>
+                            </div>
+                            <div class="logOut">
+                                <button onClick={() => {logOut()}} class="logOutBtn">
+                                    <img src={logOutSign} /> Log Out
+                                </button>
+                            </div>
+                        </div> */}
+                    
 
-                    </div>
+    
                 </div>
                 
-                    {/* 
-                </div>
-                
-                    <div class="lomid">
-                        <img src={maleHappy} width="85%" />
-                    </div>
-                    <div class="loside">
-                        <div class="calBox">
-                            <div class="calTop">
-                                
-                            </div>
-                            <div class="calBot">
-                                <p class="dayCount">16</p>
-                                <p class="dayText">Days</p>
-                            </div>
-                        </div>
-                        <div class="logOut">
-                            <button onClick={() => {logOut()}} class="logOutBtn">
-                                <img src={logOutSign} /> Log Out
-                            </button>
-                        </div>
-                    </div> */}
-                
-
- 
             </div>
-            
         </div>
     );
 }

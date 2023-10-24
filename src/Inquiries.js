@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Divider } from "@mui/material";
+import { Divider, useMediaQuery } from "@mui/material";
 import FaqContent from "./FaqContent";
 
 import NavBarItem from "./NavBarItem.js";
@@ -11,8 +11,12 @@ import "./utils/main_calendar.css";
 import "./Inquiries.css";
 
 
+
 export default function Inquiries () {
   // const days = ["S", "M", "T", "W", "T", "F", "S"];
+
+  const isSmallScreen = useMediaQuery('(max-width: 1200px)');
+
   return (
           
     <div className="Inquiries-body" >
@@ -26,7 +30,8 @@ export default function Inquiries () {
         <div className="content-left">
           <FaqContent/>
         </div>
-        <Divider orientation ="vertical" variant= "middle" flexItem></Divider>
+        {!isSmallScreen && <Divider orientation ="vertical" variant= "middle" flexItem></Divider> }
+    
         <div className="content-right">
           <Calendar/>
         </div>

@@ -1,8 +1,16 @@
 
 
+.HomeHome{
+    background-color: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
+}
 .HomePage {
     background: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
     font-family: lexend ;
+    background-image: url('assets/first\ blob.png'), url('assets/second\ blob.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top,right bottom;
+    width: 100%, 100%;
+    background-size: 20%, 30%; 
 
 }
 
@@ -80,7 +88,8 @@
     flex: 20%;
     align-items: center;
     /* justify-items: center; */
-    justify-content: center;
+    /* justify-content: center; */
+    margin-top: 20vh;
 }
 
 .inner-lower-left{
@@ -119,11 +128,23 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
     
 }
 
+/* .lower-mid-content{
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+     
+} */
+
 .img-responsive {
     max-width: 100%;  
+    /* align-self: stretch; */
+    
 }
 /* img {max-width:100%;} */
 
@@ -133,9 +154,10 @@
     flex: 20%;
     align-items: center;
     /* justify-items: center; */
-    justify-content: center;
+    /* justify-content: center; */
     gap: 2rem;
-    justify-self: center;
+    align-items: center;
+    margin-top: 20vh;
 }
 
 .inner-lower-right{
@@ -171,7 +193,7 @@
 .logOut {
     display: flex;
     align-self: flex-end;
-    margin-top: auto;
+    /* margin-top: auto; */
     
 }
 
@@ -220,6 +242,37 @@
         margin: 0 auto; /* Center the button vertically */
         
     }
+    .lower-right{
+        display: flex;
+        flex-direction: column;
+        flex: 20%;
+        align-items: center;
+        /* justify-items: center; */
+        /* justify-content: center; */
+        gap: 2rem;
+        align-items: center;
+        margin-top: 0vh;
+    }
+    .lower-left{
+        display: flex;
+        flex-direction: column;
+        flex: 20%;
+        align-items: center;
+        /* justify-items: center; */
+        /* justify-content: center; */
+        margin-top: 0vh;
+    }
+    .HomePage {
+        
+        font-family: lexend ;
+        background-image: url('assets/first\ blob.png'), url('assets/second\ blob.png');
+        background-repeat: no-repeat, no-repeat;
+        background-position: left top,right center;
+        width: 100%, 100%;
+        background-size: 30%, 40%;
+        /* height: max-content; */
+    
+    }
 
 }
 
@@ -243,78 +296,7 @@ div.upleft {
     opacity: 0;
 }
 
-div.upmid {
-    width: 44%;
-    float: left;
-}
 
-div.upright {
-    width: 28%;
-    text-align: left;
-    float: left;
-    color:#01358C;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-div.lower {
-    width: 100%;
-    margin-top: 10px;
-}
-
-div.loside {
-    width: 30%;
-    float: left;
-}
-
-div.lomid {
-    width: 40%;
-    float: left;
-}
-
-div.upper:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-div.lower:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
-p.tempFiller {
-    margin-bottom: 0px;
-    font-size: 8px;
-    opacity: 0;
-}
-
-
-
-div.calBox {
-    margin-top: 50px;
-    border-style: solid;
-    border-color: #9CADCA;
-    background-color: #F4F8FF;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-    border-radius: 20px;
-    box-shadow: 9px 8px 4px 1px rgba(0, 0, 0, 0.5);
-}
-
-div.calTop {
-    margin-bottom: 30px;
-}
-
-div.calBot {
-    border-style: solid;
-    border-color: #9CADCA;
-    border-width: 2px 0 0 0;
-    color:#01358C;
-}
 
 
 
