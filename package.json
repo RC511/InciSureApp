@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@arduino/arduino-iot-client": "^2.0.0",
+    "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/lexend": "^5.0.12",
@@ -16,6 +17,7 @@
     "child_process": "^1.0.2",
     "dayjs": "^1.11.10",
     "express": "^4.18.2",
+    "firebase": "^10.5.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "nth-check": "^2.1.1",

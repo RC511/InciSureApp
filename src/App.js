@@ -6,6 +6,7 @@ import Login from './Login.js';
 import Logs from './Logs.js';
 import Inquiries from './Inquiries.js';
 import useToken from './TokenHandler.js';
+import ForgotPass from './ForgotPass';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import '@fontsource/lexend';
@@ -49,6 +50,18 @@ function DesktopPages() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
+  );
+}
+
+function LoginPages({tokenFunc}) {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login setToken={tokenFunc} />} />
+        <Route path="/forgotpswd" element={<ForgotPass />} />
+        <Route path="/changepswd" element={<ForgotPass />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
@@ -104,7 +117,7 @@ function App() {
   if (!token)
   {
     return (
-      <Login setToken={setToken} />
+      <LoginPages tokenFunc={setToken} />
     );
   }
 

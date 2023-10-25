@@ -14,7 +14,6 @@ div.top {
 }
 
 div.bottom {
-    /* height: 95%; */
 }
 
 div.left {
@@ -34,7 +33,6 @@ div.right {
 
 img.pages {
     vertical-align: middle;
-    /* margin-top: 2px; */
     margin-right: 5px;
     margin-left: 5%;
 }
