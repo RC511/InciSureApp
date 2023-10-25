@@ -1,6 +1,5 @@
 import NavBarItem from "./NavBarItem";
 import './Logs.css';
-<<<<<<< Updated upstream
 // import { Helmet } from 'react-helmet';
 // import tempPlot from './assets/tempPlot.png';
 // import impPlot from './assets/impPlot.png';
@@ -40,12 +39,6 @@ export default function Logs() {
         ]
     });
     
-=======
-import Arduino_iot from "./Arduino_iot"
-
-export default function Logs() {
-    Arduino_iot();
->>>>>>> Stashed changes
     return(
         <div class="back">
             <div class="navBar">
@@ -71,4 +64,4 @@ export default function Logs() {
             </main>
         </div>
     )
-}
+};
