@@ -31,6 +31,7 @@ function logOut() {
 // maybe do background-image
 
 export default function Home() {
+    console.log("LOGarutgm");
     return (
         <div className='HomeHome'>
             <div className="HomePage">
