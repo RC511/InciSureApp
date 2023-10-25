@@ -1,6 +1,6 @@
 .backgr {
-    background-color:#E6EFFF;
-    font-family: "Lexend";
+    background-color:linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
+    font-family: Lexend;
 }
 
 .container1{
