@@ -16,3 +16,5 @@ export default async function Arduino_iot (){
       // Listen to a thing property's changes
       client.onPropertyValue('63900634-58d1-4bdb-8dcf-c403eb40d59a', 'Temp_Thermistor', (value) => console.log(value));
     }
+
+    
