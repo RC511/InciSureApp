@@ -15,8 +15,7 @@ import ImpChart from "./utils/ImpChart";
 Chart.register(CategoryScale);
 
 export default function Logs() {
-    
-    const [chartData1, setChartData1] = useState({
+    const chartData1 = {
         labels: tempData.map((data) => data.year), 
         datasets: [
           {
@@ -24,9 +23,38 @@ export default function Logs() {
             data: tempData.map((data) => data.userGain),
             borderColor: "#B69DF8",
             borderWidth: 2
+          },
+          {
+            label: "Temp Top",
+            data: [100000,100000,100000,100000,100000],
+            borderColor: "black",
+            borderWidth: 2
+          },
+          {
+            label: "Temp Bottom",
+            data: [70000,70000,70000,70000,70000],
+            borderColor: "red",
+            borderWidth: 2,
+            fill: '-1',
           }
         ]
-    });
+    };
+    // const [chartData1, setChartData1] = useState({
+    //     labels: tempData.map((data) => data.year), 
+    //     datasets: [
+    //       {
+    //         label: "Users Gained ",
+    //         data: tempData.map((data) => data.userGain),
+    //         borderColor: "#B69DF8",
+    //         borderWidth: 2
+    //       }
+    //       {
+    //         label: "Temp Baseline",
+    //         data: [0,300,500,1000],
+            
+    //       }
+    //     ]
+    // });
     const [chartData2, setChartData2] = useState({
         labels: impData.map((data) => data.year), 
         datasets: [

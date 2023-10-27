@@ -1,5 +1,5 @@
 .backgr {
-    background-color:linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
     font-family: Lexend;
 }
 
