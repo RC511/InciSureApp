@@ -12,7 +12,12 @@
     gap: 40px;
 }
 
-.containerTemp{
+.loginLogo {
+    width: 20%;
+    margin-left: 40%;
+}
+
+.containerTemp {
     /* border: 1px solid #d40909; */
     display: flex;
     flex-wrap: wrap;
