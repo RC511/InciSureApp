@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Login.css';
 import { Link } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import app from 'firebase.js';
+import app from './firebase.js';
 
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
