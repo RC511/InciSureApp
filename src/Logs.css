@@ -1,6 +1,7 @@
-.backgr {
+.back {
     background: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
     font-family: Lexend;
+    font-weight: 700;
 }
 
 .containerLogs{
@@ -10,11 +11,6 @@
     flex-direction: column;
     margin: 10%;
     gap: 40px;
-}
-
-.loginLogo {
-    width: 20%;
-    margin-left: 40%;
 }
 
 .containerTemp {
@@ -40,7 +36,7 @@
 }
 
 .Data{
-    font-size: 35px;
+    font-size: 40px;
     background: #F4F8FF;
     /* border: 3px solid rgba(0, 0, 0, 0.05);  */
     border-radius: 42px;

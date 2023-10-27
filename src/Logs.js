@@ -22,7 +22,7 @@ export default function Logs() {
           {
             label: "Users Gained ",
             data: tempData.map((data) => data.userGain),
-            borderColor: "red",
+            borderColor: "#B69DF8",
             borderWidth: 2
           }
         ]
@@ -33,7 +33,7 @@ export default function Logs() {
           {
             label: "Users Gained ",
             data: impData.map((data) => data.userLost),
-            borderColor: "blue",
+            borderColor: "#EFB8C8",
             borderWidth: 2,
           }
         ]
