@@ -1,8 +1,9 @@
 
-
 .HomeHome{
     background-color: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
 }
+
+
 .HomePage {
     background: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
     font-family: lexend ;
@@ -12,6 +13,14 @@
     width: 100%, 100%;
     background-size: 20%, 30%; 
 
+}
+
+#healthy .HomePage {
+    background-image: url('assets/first\ blob.png'), url('assets/second\ blob.png');
+}
+
+#sick .HomePage {
+    background-image: url('assets/red_first_blob.png'), url('assets/red_second_blob.png');
 }
 
 .HomeContainer {
@@ -30,6 +39,14 @@
 
 .condition-status{
     color:rgb(22, 195, 22);
+}
+
+#healthy .condition-status{
+    color:rgb(22, 195, 22);
+}
+
+#sick .condition-status{
+    color: red;
 }
 
 
@@ -113,6 +130,14 @@
     font-weight: bold;
     font-size: 72px;
     color: #01358C;
+}
+
+#healthy .tempValue{
+    color: #01358C;
+}
+
+#sick .tempValue{
+    color: rgb(215, 15, 15);
 }
 
 .lower-mid{

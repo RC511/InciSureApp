@@ -8,8 +8,10 @@ import './Home.css';
 import './NavBar.css';
 import NavBarItem from './NavBarItem.js';
 import { BsFillCalendarEventFill } from "react-icons/bs";
+import {PiWarningFill} from "react-icons/pi"
 import {MdLogout} from "react-icons/md";
-import React from 'react';
+import {React, useState, createContext} from 'react';
+import ReactSwitch from 'react-switch';
 
 function getDate() {
     const today = new Date();
@@ -30,10 +32,25 @@ function logOut() {
 
 // maybe do background-image
 
+export const ThemeContext = createContext(null);
+
 export default function Home() {
-    console.log("LOGarutgm");
+    // const [trigerred, setTriggered] = useState(false);
+
+    // const handleTrigger = () =>v{
+    //     setTriggered(!trigerred);
+    // }
+    const [theme, setTheme] = useState("healthy");
+
+    const toggleTheme = () => {
+        setTheme((curr) => (curr === "healthy" ? "sick" : "healthy"))
+    }
+
+    const style_warn = { color: "red" };
+
     return (
-        <div className='HomeHome'>
+        <ThemeContext.Provider value = {{theme, toggleTheme}}>
+        <div className='HomeHome' id = {theme}>
             <div className="HomePage">
                 <div className='HomeContainer'>
                     <div className="navBar">
@@ -45,7 +62,18 @@ export default function Home() {
                         </div>
                         <div className="upper-mid">
                             <h1 className='font-bold text-3xl'>WELCOME, Patient</h1>
-                            <h2 className='upper-heading2'>Your wound is doing <span className='condition-status'>WELL</span>!</h2>
+                            
+                            <h2 className='upper-heading2'> 
+                            <span className='inline-flex items-center'>
+                                {theme === "sick" && <PiWarningFill size={50} className='mr-2' style = {style_warn} />}
+                            
+                                {theme === "healthy" ? "Your wound is doing"  : "Your wound requires immediate"} 
+                            
+                                <span className='condition-status mx-2'> {theme === "healthy" ? "WELL" : "ATTENTION"}</span>!
+                                </span>
+                                </h2>
+                            
+                            
                         </div>
                         <div className='upper-right'>
                             <div className='flex px-2  justify-items-center'>
@@ -69,7 +97,7 @@ export default function Home() {
                         
                         <div className ="lower-mid">
                             <div className = "lower-mid-content">
-                                <img src={maleHappy} className="img-responsive" alt="Male Happy"/>
+                                <img src={theme === "healthy" ? maleHappy : maleSad} className="img-responsive" alt="Male Happy"/>
                             </div>
                         </div>
                         <div className='lower-right '>
@@ -83,7 +111,14 @@ export default function Home() {
                                     <span>Log Out</span>
                                 </button>
                             </div>
-
+                            <div>
+                                <label> {theme === "healthy"? "Healthy mode": "Sick mode"}</label>
+                                <ReactSwitch onChange={toggleTheme} checked = {theme === "sick"}/>
+                            </div>
+                            
+                        {/* <button onClick={handleTrigger}>
+                            Trigger Design Change
+                        </button> */}
                         </div>
                     </div>
                     
@@ -116,5 +151,6 @@ export default function Home() {
                 
             </div>
         </div>
+        </ThemeContext.Provider>
     );
 }

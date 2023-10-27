@@ -9,6 +9,8 @@ import { generateDate } from "./utils/calendar";
 import {BsPersonCircle} from "react-icons/bs";
 import "./utils/main_calendar.css";
 import "./Inquiries.css";
+import Iot_client from "./iot-client";
+import Arduino_iot from "./Arduino_iot";
 
 
 
@@ -16,7 +18,10 @@ export default function Inquiries () {
   // const days = ["S", "M", "T", "W", "T", "F", "S"];
 
   const isSmallScreen = useMediaQuery('(max-width: 1200px)');
-
+  
+  useEffect (()=>{
+    Iot_client();
+  }, []);
   return (
           
     <div className="Inquiries-body" >
@@ -37,7 +42,7 @@ export default function Inquiries () {
         </div>
         
       </div>
-
+      
       
 
         
