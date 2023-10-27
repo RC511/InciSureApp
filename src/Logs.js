@@ -26,16 +26,21 @@ export default function Logs() {
           },
           {
             label: "Temp Top",
-            data: [100000,100000,100000,100000,100000],
-            borderColor: "black",
-            borderWidth: 2
+            data: [37.2,37.2,37.2,37.2,37.2],
+            borderColor: "red",
+            borderWidth: 1,
+            borderDash: [10, 5],
+            pointRadius: 0
           },
           {
             label: "Temp Bottom",
-            data: [70000,70000,70000,70000,70000],
+            data: [36.1,36.1,36.1,36.1,36.1],
             borderColor: "red",
-            borderWidth: 2,
+            borderWidth: 1,
+            borderDash: [10, 5],
+            pointRadius: 0,
             fill: '-1',
+            backgroundColor: "rgb(154,190,255,0.2)"
           }
         ]
     };
