@@ -5,16 +5,45 @@ import './Logs.css';
 // import impPlot from './assets/impPlot.png';
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { tempData } from "./utils/tempData";
 import { impData } from "./utils/impData";
 // import LineChart from "./utils/LineChart";
 import TempChart from "./utils/TempChart";
 import ImpChart from "./utils/ImpChart";
+import {
+  getFirestore , collection, getDocs
+} from 'firebase/firestore'
+import app from "./firebase.js";
+// import { getAuth } from "firebase/auth";
 
 Chart.register(CategoryScale);
 
+
 export default function Logs() {
+    // init services
+    const db = getFirestore(app);  
+    // collection ref
+    const colRef  = collection(db,"dummy_data")
+
+    const [dummy_data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async() => {
+            try {
+                const snapshot = await getDocs(colRef);
+                const dataFromFirestore = snapshot.docs.map((doc) => doc.data());
+                setData(dataFromFirestore);
+                // Log the data to the console
+                console.log('Data from Firestore:', dataFromFirestore);
+            } catch(error) {
+                console.error('Error getting data:', error)
+            }
+    };
+
+    fetchData();
+}, []);
+
     const chartData1 = {
         labels: tempData.map((data) => data.year), 
         datasets: [

@@ -19,9 +19,10 @@ export default function Inquiries () {
 
   const isSmallScreen = useMediaQuery('(max-width: 1200px)');
   
-  useEffect (()=>{
-    Iot_client();
-  }, []);
+  // useEffect (()=>{
+  //   Iot_client();
+  // }, []);
+
   return (
           
     <div className="Inquiries-body" >
