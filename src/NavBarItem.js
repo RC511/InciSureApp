@@ -5,6 +5,8 @@ import inquiries from './assets/inquiries.png';
 import profile from './assets/profile.png';
 import {Link} from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import {HiOutlineMenu} from "react-icons/hi";
+import  {FaBars, FaTimes} from 'react-icons/fa';
 
 export default function NavBarItem(type) {
     if (!type) type = 1;
@@ -12,6 +14,11 @@ export default function NavBarItem(type) {
     const name2 = "Medical Logs";
     const name3 = "Inquiries";
     const name4 = "Profile";
+
+    const [click, setClick] = useState(false);
+
+    const handleClick = () => setClick(!click);
+
     const[ sticky, setSticky ] = useState(false);
 
     useEffect(() => {
@@ -29,8 +36,29 @@ export default function NavBarItem(type) {
         //     </div> */}
             
         // </div>
-        
+       <>
+       
+       
         <div className= {`${sticky ? 'sticky': ""} fixed top-5 flex border-2 border-blue-900 rounded-lg h-10 px-5 justify-around items-center w-4/5 bg-inherit`}>
+
+        <div className = "menu-icon" onClick={handleClick}>
+        {click ? <FaTimes/> : <FaBars/>}
+        </div>
+        <ul className= {click ? 'nav-menu active' : 'nav-menu'}>
+            <li className='nav-item'>
+                <link to = "/" className='nav-links'> Home </link>
+            </li>
+            <li className='nav-item'>
+                <link to = "/logs" className='nav-links'> Medical Logs </link>
+            </li>
+            <li className='nav-item'>
+                <link to = "/inquiries" className='nav-links'> Inquiries </link>
+            </li>
+            <li className='nav-item'>
+                <link to = "/profile" className='nav-links'> Profile</link>
+            </li>
+        </ul>
+        
             <div className="flex justify-center items-center">
                 <Link to="/" className= {`
                 ${(type === 1) ? "selectedItem" : "unselectedItem"} flex justify-center items-center cursor-pointer`}  >
@@ -57,6 +85,7 @@ export default function NavBarItem(type) {
                 </Link>
             </div>
         </div>
+        </>
         
     );
 }

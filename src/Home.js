@@ -10,6 +10,7 @@ import NavBarItem from './NavBarItem.js';
 import { BsFillCalendarEventFill } from "react-icons/bs";
 import {PiWarningFill} from "react-icons/pi"
 import {MdLogout} from "react-icons/md";
+import {RiEmotionHappyLine} from "react-icons/ri"
 import {React, useState, createContext} from 'react';
 import ReactSwitch from 'react-switch';
 
@@ -64,14 +65,16 @@ export default function Home() {
                             <h1 className='font-bold text-3xl'>WELCOME, Patient</h1>
                             
                             <h2 className='upper-heading2'> 
-                            <span className='inline-flex items-center'>
+                            <span className='inline-flex items-center text-2xl'>
                                 {theme === "sick" && <PiWarningFill size={50} className='mr-2' style = {style_warn} />}
                             
                                 {theme === "healthy" ? "Your wound is doing"  : "Your wound requires immediate"} 
-                            
-                                <span className='condition-status mx-2'> {theme === "healthy" ? "WELL" : "ATTENTION"}</span>!
-                                </span>
-                                </h2>
+                            </span>
+                            <div className='cond-status-container items-center text-3xl font-extrabold'>
+                                <p className='condition-status mx-2'> {theme === "healthy" ? "WELL!" : "ATTENTION!"}</p>
+                                
+                            </div>
+                            </h2>
                             
                             
                         </div>

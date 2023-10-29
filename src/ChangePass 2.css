@@ -1,0 +1,38 @@
+.ChangePass-body {
+  background: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
+  min-height: 100vh;
+}
+.ChangePass-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center ; 
+  align-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  
+  /* min-height: 100vh; */
+}
+.Title{
+  margin-top: 100px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  font-family: Lexend;
+  font-size: 32px;
+  font-weight: bold;
+  color: #062d71;
+}
+
+.ChangePass-form{
+  margin-top: 20px;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+}
+
+.form-question{
+  flex-wrap: wrap;
+  width: max-content;
+}

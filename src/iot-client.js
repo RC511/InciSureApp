@@ -6,7 +6,7 @@ export default async function Iot_client() {
     async function getToken() {
         var options = {
             method: 'POST',
-            url: 'https://api2.arduino.cc/iot/v1/clients/token',
+            // url: 'https://api2.arduino.cc/iot/v1/clients/token',
             headers: { 'content-type': 'application x-www-form-urlencoded' },
             json: true,
             form: {
@@ -18,7 +18,7 @@ export default async function Iot_client() {
         };
     
         try {
-            const response = await axios.get(options);
+            const response = await axios.post('https://api2.arduino.cc/iot/v2/dashboard', null, options);
             return response['access_token'];
         }
         catch (error) {
