@@ -1,102 +1,116 @@
 @import "@fontsource/lexend/700.css";
 
-.submitButton {
-    width: 20%;
-    height: 52px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: #B6D9FF;
-    box-shadow: 4px 8px 9px 0px rgba(0, 0, 0, 0.20);
-    margin-top: 64px;
-    margin-left: 40%;
-    margin-right: 40%;
-    color: #00286B;
-    border: none;
-    font-family: Lexend;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-}
-
-.submitDiv {
-    line-height: 200px;
-}
-
 .logDiv {
     background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
+    font-family: Lexend;
 }
 
-.inClass {
-    width: 30%;
-    height: 24px;
-    margin-left: 35%;
-    margin-right: 35%;
-    flex-shrink: 0;
-    border-radius: 10px;
-    border: none;
-    background: #E3EDFF;
+.containerLogin{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    gap: 15px;
 }
 
-.labelClass {
-    line-height: 30px;
-    margin-bottom: 30px;
+.loginLogo {
+    width: 20%;
+    margin-left: 40%;
+    padding: 20px;
 }
 
-h1.login {
+.login {
     color: #00286B;
     text-align: center;
-    font-family: Lexend;
-    font-size: 64px;
-    font-style: normal;
+    font-size: 50px;
     font-weight: 700;
     line-height: 64px;
     letter-spacing: -0.25px;
 }
 
+.labelClass {
+    line-height: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: baseline;
+    gap: 15px;
+    /* margin: 30px; */
+}
+
 .pLogin {
     color: #00286B;
-    font-family: Lexend;
-    font-size: 24px;
-    font-style: normal;
+    font-size: 25px;
     font-weight: 700;
     letter-spacing: -0.25px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    /* margin-left: 35%; */
+}
+
+.inClass {
+    width: 30%;
+    height: 40px;
     margin-left: 35%;
+    margin-right: 35%;
+    flex-shrink: 0;
+    border-radius: 10px;
+    box-shadow: 4px 4px 13px rgba(0, 0, 0, 0.25);
+    border: none;
+    background: #E3EDFF;
 }
 
 .passSpan {
     margin-top: 25px;
 }
 
-.remembBox {
+.bottomLogin {
+    display: flex;
     margin-left: 35%;
+    margin-right: 35%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.rememb {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .remembText {
     color: #00286B;
-    font-family: Lexend;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
     letter-spacing: -0.25px;
 }
 
 .forgotPass {
     color: #00286B;
-    font-family: Lexend;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
     letter-spacing: -0.25px;
-    margin-left: 13%;
-    margin-right: 35%;
+    /* margin-left: 13%;
+    margin-right: 35%; */
     text-align: right;
 }
 
-body {
-    /* background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
-    object-fit: fill;
-    margin-top: 0%;
-    margin-bottom: -100%; */
-    /* height: 100%; */
+.submitDiv {
+    margin: 5%;
+}
+
+.submitButton {
+    width: 20%;
+    height: 60px;
+    border-radius: 15px;
+    box-shadow: 4px 8px 9px 0px rgba(0, 0, 0, 0.20);
+    margin-left: 40%;
+    margin-right: 40%;
+    transition-duration: 0.4s;
+
+    color: #00286B;
+    font-size: 30px;
+    font-weight: 700;
 }

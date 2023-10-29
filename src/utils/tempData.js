@@ -2,31 +2,31 @@ export const tempData = [
     {
       id: 1,
       year: 2016,
-      userGain: 80000,
+      userGain: 36.5,
       userLost: 823
     },
     {
       id: 2,
       year: 2017,
-      userGain: 45677,
+      userGain: 36.7,
       userLost: 345
     },
     {
       id: 3,
       year: 2018,
-      userGain: 78888,
+      userGain: 36.9,
       userLost: 555
     },
     {
       id: 4,
       year: 2019,
-      userGain: 90000,
+      userGain: 36.7,
       userLost: 4555
     },
     {
       id: 5,
       year: 2020,
-      userGain: 4300,
+      userGain: 36.7,
       userLost: 234
     }
 ];  

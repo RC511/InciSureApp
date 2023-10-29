@@ -20,8 +20,17 @@ function TempChart({ chartData }) {
             legend: {
                 display: false,
             }
+          },
+          scales: {
+            y: {
+              display: true,
+              suggestedMin: 35,
+              suggestedMax: 38,
+              ticks: {
+                  stepValue: 0.5
+              }
+            }
           }
-          
         }}
       />
     </div>
