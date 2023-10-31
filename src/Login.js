@@ -29,7 +29,38 @@ export default function Login({ setToken }) {
 
   return(
     <div class="logDiv">
-      <br></br>
+      <main class="containerLogin">
+        <div>
+          <img src={logo} class="loginLogo"/>
+        </div>
+        <div class="login">
+          Log in to your account :D
+        </div>
+        <form onSubmit={handleSubmit}>
+          <main class="labelClass">
+            <div class="pLogin">Email</div>
+            <input class="inClass" type="email" onChange={e => setUserName(e.target.value)} required />
+          </main>
+          <main class="labelClass">
+            <div class="pLogin">Password</div>
+            <input class="inClass" type="password" onChange={e => setPassword(e.target.value)} required />
+          </main>
+          <main class="bottomLogin">
+            <div class="rememb">
+              <input type="checkbox" id="rememberme" name="rememberme" onChange={e =>setRemember(e.target.checked)} />
+              <label class="remembText" for="rememberme">Remember credentials</label>
+            </div>
+            <Link class="forgotPass" to="/forgotpswd">
+              Forgot password
+            </Link>
+          </main>
+          <div class="submitDiv">
+            <button type="submit" class="submitButton bg-light-blue hover:bg-white">LOG IN</button>
+          </div>
+        </form>
+      </main>
+
+      {/* <br></br>
       <h1 class="login">Please Log In</h1>
       <form onSubmit={handleSubmit}>
         <label class="labelClass">
@@ -51,7 +82,7 @@ export default function Login({ setToken }) {
         <div class="submitDiv">
           <button type="submit" class="submitButton">LOG IN</button>
         </div>
-      </form>
+      </form> */}
     </div>
   )
 }

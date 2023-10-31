@@ -1,35 +1,330 @@
-@import "@fontsource/lexend/700.css";
 
-div.back {
-    background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
-    align-content:  center;
-    align-items:   center;
-    text-align: center;
-    font-family: Lexend;
+.HomeHome{
+    background-image: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
 }
 
-h1.greeting {
+
+.HomePage {
+    background: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
+    font-family: lexend ;
+    background-image: url('assets/first\ blob.png'), url('assets/second\ blob.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top,right bottom;
+    width: 100%, 100%;
+    background-size: 20%, 30%; 
+
+}
+
+#healthy .HomePage {
+    background-image: url('assets/first\ blob.png'), url('assets/second\ blob.png');
+}
+
+#sick .HomePage {
+    background-image: url('assets/red_first_blob.png'), url('assets/red_second_blob.png');
+}
+
+.HomeContainer {
+    display: flex;
+    padding-top: 24px;
+    flex-direction: column;
+    justify-content: center ; 
+    align-content: center;
+    
+}
+
+.navBar-item{
+    display: flex;
+
+}
+
+
+
+
+
+.upper-container {
+    color:#01358C;
+    margin-top: 24px;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.upper-heading2{
+    font-size: x-large;
+    font-weight: 700;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cond-status-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.condition-status{
+    color:rgb(22, 195, 22);
+    /* font-weight: 900; */
+}
+
+#healthy .condition-status{
+    color:rgb(22, 195, 22);
+}
+
+#sick .condition-status{
+    color: red;
+}
+
+.upper-left{
+    display: flex;
+    flex-direction: column;
+    flex: 20%;
+}
+.upper-mid{
+    display: flex;
+    flex-direction: column;
+    flex: 60%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+.upper-right{
+    display: flex;
+    flex-direction: row;
+    flex: 20%;
+    padding: 20px;   
+    justify-items: center ;
+}
+
+.lower-container{
+    color:#01358C;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    
+}
+
+.lower-left{
+    display: flex;
+    flex-direction: column;
+    flex: 20%;
+    align-items: center;
+    /* justify-items: center; */
+    /* justify-content: center; */
+    margin-top: 20vh;
+}
+
+.inner-lower-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    padding: 15px;
+    max-width: 280px;
+    /* width: 90%; */
+}
+
+.tempName {
+    font-weight: bold;
+    font-size: xx-large;
+    color: #01358C;
+    
+}
+
+.tempValue {
+    font-weight: bold;
+    font-size: 72px;
     color: #01358C;
 }
 
-h2.status {
+#healthy .tempValue{
     color: #01358C;
 }
+
+#sick .tempValue{
+    color: rgb(215, 15, 15);
+}
+
+.lower-mid{
+    flex-direction: column;
+    flex: 60%;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    /* padding-left: 4%; */
+}
+
+.lower-mid-content{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* .lower-mid-content{
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+     
+} */
+
+.img-responsive {
+    max-width: 100%;  
+    /* align-self: stretch; */
+    
+}
+/* img {max-width:100%;} */
+
+.lower-right{
+    display: flex;
+    flex-direction: column;
+    flex: 20%;
+    align-items: center;
+    /* justify-items: center; */
+    /* justify-content: center; */
+    gap: 2rem;
+    align-items: center;
+    margin-top: 20vh;
+}
+
+.inner-lower-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    padding: 15px;
+    border-style: solid;
+    border-color: #9CADCA;
+    width: 280px;
+    
+    
+    /* width: 90%; */
+    /* height: 180px; */
+    
+    /* width: 90%; */
+}
+
+.dayCount{
+    font-weight: bold;
+    font-size: 72px;
+    color: #01358C;
+    
+}
+
+.dayText {
+    font-weight: bold;
+    font-size: xx-large;
+    color: #01358C;
+}
+
+.logOut {
+    display: flex;
+    align-self: flex-end;
+    /* margin-top: auto; */
+    
+}
+
+.logOutBtn {
+    font-size: 24px;
+    font-weight: bold;
+    color:#01358C;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+   
+
+}
+
+
+@media screen and (max-width: 1200px){
+    .upper-container {
+      display: flex;
+      flex-direction: column;
+      flex: 80%;
+      padding: 20px;
+      align-items: center;
+    }
+    
+
+  }
+
+@media screen and (max-width: 1100px){
+    .lower-container {
+        display: flex;
+        flex-direction: column;
+        flex: 80%;
+        padding: 20px;
+        align-items: center;
+        gap: 3rem;
+      }
+
+    .img-responsive {
+        max-width: 75%;  
+    }
+
+    .logOutBtn {
+        justify-items: center; /* Center the button horizontally */
+        margin: 0 auto; /* Center the button vertically */
+        
+    }
+    .lower-right{
+        display: flex;
+        flex-direction: column;
+        flex: 20%;
+        align-items: center;
+        /* justify-items: center; */
+        /* justify-content: center; */
+        gap: 2rem;
+        align-items: center;
+        margin-top: 0vh;
+    }
+    .lower-left{
+        display: flex;
+        flex-direction: column;
+        flex: 20%;
+        align-items: center;
+        /* justify-items: center; */
+        /* justify-content: center; */
+        margin-top: 0vh;
+    }
+    .HomePage {
+        
+        font-family: lexend ;
+        background-image: url('assets/first\ blob.png'), url('assets/second\ blob.png');
+        background-repeat: no-repeat, no-repeat;
+        background-position: left top,right center;
+        width: 100%, 100%;
+        background-size: 30%, 40%;
+        /* height: max-content; */
+    
+    }
+
+}
+
+
+
 
 p.lUpdate {
     opacity: 0.42;
     font-size: 16px;
-    margin-top: 5px;
     font-weight: 500;
 }
 
-span.statusColouring {
-    color: green;
-}
 
-div.upper {
-    width: 100%;
-}
+
+
 
 div.upleft {
     width: 28%;
@@ -38,128 +333,11 @@ div.upleft {
     opacity: 0;
 }
 
-div.upmid {
-    width: 44%;
-    float: left;
-}
 
-div.upright {
-    width: 28%;
-    text-align: left;
-    float: left;
-    color:#01358C;
-    font-weight: 500;
-    font-size: 20px;
-}
 
-div.lower {
-    width: 100%;
-    margin-top: 10px;
-}
 
-div.loside {
-    width: 30%;
-    float: left;
-}
 
-div.lomid {
-    width: 40%;
-    float: left;
-}
 
-div.upper:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 
-div.lower:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 
-div.tempBox {
-    margin-top: 50px;
-    width: 70%;
-    height: 200px;
-    background-color: #F4F8FF;
-    margin-left: 15%;
-    margin-right: 15%;
-    border-radius: 20px;
-    box-shadow: 9px 8px 4px 1px rgba(0, 0, 0, 0.5);
-}
 
-p.tempFiller {
-    margin-bottom: 0px;
-    font-size: 8px;
-    opacity: 0;
-}
-
-p.tempName {
-    font-weight: bold;
-    font-size: 24px;
-    color: #01358C;
-    margin-bottom: 0;
-}
-
-p.tempValue {
-    margin-top: 0;
-    font-weight: bold;
-    font-size: 72px;
-    color: #01358C;
-}
-
-div.calBox {
-    margin-top: 50px;
-    border-style: solid;
-    border-color: #9CADCA;
-    background-color: #F4F8FF;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-    border-radius: 20px;
-    box-shadow: 9px 8px 4px 1px rgba(0, 0, 0, 0.5);
-}
-
-div.calTop {
-    margin-bottom: 30px;
-}
-
-div.calBot {
-    border-style: solid;
-    border-color: #9CADCA;
-    border-width: 2px 0 0 0;
-    color:#01358C;
-}
-
-p.dayCount {
-    font-size: 72px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
-p.dayText {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 5px;
-    margin-bottom: 30px;
-}
-
-div.logOut {
-    margin-top: 50%;
-    text-align: right;
-    
-}
-
-button.logOutBtn {
-    font-size: 24px;
-    font-weight: bold;
-    color:#01358C;
-    border: none;
-    background-color: inherit;
-    padding: 14px 28px;
-    cursor: pointer;
-    display: inline-block;
-}

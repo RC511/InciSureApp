@@ -7,9 +7,14 @@ import Logs from './Logs.js';
 import Inquiries from './Inquiries.js';
 import useToken from './TokenHandler.js';
 import ForgotPass from './ForgotPass';
+import ChangePass from './ChangePass';
+//import ChangePass from './ChangePass.component';
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import {ArduinoIoTCloud} from 'arduino-iot-js';
+
 import '@fontsource/lexend';
+
 
 /* Code to check if app is being opened on mobile or desktop
 const [width, setWidth] = useState<number>(window.innerWidth);
@@ -26,9 +31,6 @@ useEffect(() => {
 
 const isMobile = width <= 768;
 */
-
-// this is a new hi for me
-// a different hi
 
 function MobilePages() {
   return (
@@ -59,7 +61,8 @@ function LoginPages({tokenFunc}) {
       <Routes>
         <Route path="/" element={<Login setToken={tokenFunc} />} />
         <Route path="/forgotpswd" element={<ForgotPass />} />
-        <Route path="/changepswd" element={<ForgotPass />} />
+        {/* <Route path="/changepswd" element={<ChangePass />} /> */}
+        {/* <Route exact path= '/changepswd' component = {ChangePass}/> */}
       </Routes>
     </BrowserRouter>
   );

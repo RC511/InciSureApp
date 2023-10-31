@@ -42,6 +42,17 @@ export default function ForgotPass() {
                 <Link to="/">
                   Cancel
                 </Link>
+                {/* <Link to="/changepswd">
+                  reset_pass
+                </Link> */}
+                
+
+                <Link to= {'/changepswd'} >resetPassword</Link>
+                  
+                
+                
+
+              
             </form>
         </div>
     );

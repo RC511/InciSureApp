@@ -49,7 +49,7 @@ function Calendar() {
 						/>
 					</div>
 				</div>
-				<div className="grid grid-cols-7 ">
+				<div className="grid grid-cols-7 mt-4">
 					{days.map((day, index) => {
 						return (
 							<h1
@@ -68,7 +68,7 @@ function Calendar() {
 							return (
 								<div
 									key={index}
-									className="font-sans p-2 text-center h-10 grid place-content-center text-xs border-t"
+									className="font-sans p-2 text-center h-15 grid place-content-center text-s border-t"
 								>
 									<h1
 										className={cn(
@@ -101,8 +101,8 @@ function Calendar() {
 				<h1 className="font-semibold h-2 m-0">
 					Schedule for {selectDate.toDate().toDateString()}
 				</h1>
-				<p className="text-gray-400 text-base">No appointment made on the specified date</p>
-				<div className="doctor-name">
+				<p className="text-gray-400 text-base mt-4">No appointment made on the specified date</p>
+				<div className="doctor-name mt-4">
 					 <BsPersonCircle size={25}/><span> &nbsp;Dr. Lee Yeu Hann</span>
 				</div>
 				<p className="appointment-text">No upcoming appointment</p>

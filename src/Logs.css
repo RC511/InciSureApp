@@ -1,4 +1,51 @@
-.backgr {
-    background-color:#E6EFFF;
+.back {
+    background: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
     font-family: Lexend;
+    font-weight: 700;
 }
+
+.containerLogs{
+    max-width: 100%;
+    /* border: 1px solid #000; */
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    gap: 40px;
+}
+
+.containerTemp {
+    /* border: 1px solid #d40909; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.containerImp{
+    /* border: 1px solid #28b628; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.Plot{
+    min-width: 70%;
+}
+
+.Data{
+    font-size: 40px;
+    background: #F4F8FF;
+    /* border: 3px solid rgba(0, 0, 0, 0.05);  */
+    border-radius: 42px;
+    box-shadow: 4px 4px 13px rgba(0, 0, 0, 0.25);
+    color: #01358C;
+    min-width: 180px;
+    position: relative;
+    text-align: center;
+    padding: 40px 0;
+}
+
+

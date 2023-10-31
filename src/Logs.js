@@ -1,83 +1,129 @@
 import NavBarItem from "./NavBarItem";
 import './Logs.css';
-// import { ArduinoIoTCloud } from 'arduino-iot-js';
-// import axios from 'axios';
+// import { Helmet } from 'react-helmet';
+// import tempPlot from './assets/tempPlot.png';
+// import impPlot from './assets/impPlot.png';
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
+import { useEffect, useState } from "react";
+import { tempData } from "./utils/tempData";
+import { impData } from "./utils/impData";
+// import LineChart from "./utils/LineChart";
+import TempChart from "./utils/TempChart";
+import ImpChart from "./utils/ImpChart";
+import {
+  getFirestore , collection, getDocs
+} from 'firebase/firestore'
+import app from "./firebase.js";
+// import { getAuth } from "firebase/auth";
+
+Chart.register(CategoryScale);
+
 
 export default function Logs() {
-    var IotApi = require('@arduino/arduino-iot-client');
-    // var rp = require('request-promise');
-    // const axios = require("axios");
-    // axios.defaults.withCredentials = true;
+    // init services
+    const db = getFirestore(app);  
+    // collection ref
+    const colRef  = collection(db,"dummy_data")
 
-    async function getToken() {
-        var options = {
-            method: 'GET',
-            // method: 'POST',
-            // url: 'https://api2.arduino.cc/iot/v1/clients/token',
-            headers: { 'content-type': 'application/x-www-form-urlencoded' },
-            json: true,
-            form: {
-                grant_type: 'client_credentials',
-                client_id: 'lkvt0TqlBkSEAH280NhuBRHfIXmBb3m2',
-                client_secret: 'gNU66nTTfrTNoaRfnk9HYy1Q0cAfL0qxHjgH2alln4LNd5wlg72mwyAjXQQYJiD4',
-                audience: 'https://api2.arduino.cc/iot'
+    const [dummy_data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async() => {
+            try {
+                const snapshot = await getDocs(colRef);
+                const dataFromFirestore = snapshot.docs.map((doc) => doc.data());
+                setData(dataFromFirestore);
+                // Log the data to the console
+                console.log('Data from Firestore:', dataFromFirestore);
+            } catch(error) {
+                console.error('Error getting data:', error)
             }
         };
 
-        try {
-            // const response = await rp(options);
-            const response = await fetch('https://api2.arduino.cc/iot/v2/dashboard', options);
-            return response['access_token'];
-        }
-        catch (error) {
-            console.error("Failed getting an access token: " + error)
-        }
-    }
+        fetchData();
+    }, []);
 
-    async function run() {
-        var client = IotApi.ApiClient.instance;
-        // Configure OAuth2 access token for authorization: oauth2
-        var oauth2 = client.authentications['oauth2'];
-        oauth2.accessToken = await getToken();
-        
-        var api = new IotApi.DevicesV2Api(client)    
-        api.devicesV2List().then(devices => {
-            console.log(devices);
-        }, error => {
-            console.log(error)
-        });
-    }
-
-    run();
-
-    // console.log("MAMAMMIA")
-
-    // (async () => {
-    //     const client = await ArduinoIoTCloud.connect({
-    //         clientId: 'lkvt0TqlBkSEAH280NhuBRHfIXmBb3m2',
-    //         clientSecret: 'gNU66nTTfrTNoaRfnk9HYy1Q0cAfL0qxHjgH2alln4LNd5wlg72mwyAjXQQYJiD4',
-    //         onDisconnect: (message) => console.error(message),
-    //     });
-
-    //     console.log(client);
-
-    //     // // Send a value to a thing property
-    //     // const value = 'some value';
-    //     // client.sendProperty('YOUR_THING_ID', 'YOUR_VARIABLE_NAME', value);
-
-    //     // // Listen to a thing property's changes
-    //     // client.onPropertyValue('YOUR_THING_ID', 'ANOTHER_VARIABLE_NAME', (value) => console.log(value));
-    // })();
-
+    const chartData1 = {
+        labels: tempData.map((data) => data.year), 
+        datasets: [
+          {
+            label: "Users Gained ",
+            data: tempData.map((data) => data.userGain),
+            borderColor: "#B69DF8",
+            borderWidth: 2
+          },
+          {
+            label: "Temp Top",
+            data: [37.2,37.2,37.2,37.2,37.2],
+            borderColor: "red",
+            borderWidth: 1,
+            borderDash: [10, 5],
+            pointRadius: 0
+          },
+          {
+            label: "Temp Bottom",
+            data: [36.1,36.1,36.1,36.1,36.1],
+            borderColor: "red",
+            borderWidth: 1,
+            borderDash: [10, 5],
+            pointRadius: 0,
+            fill: '-1',
+            backgroundColor: "rgb(154,190,255,0.2)"
+          }
+        ]
+    };
+    // const [chartData1, setChartData1] = useState({
+    //     labels: tempData.map((data) => data.year), 
+    //     datasets: [
+    //       {
+    //         label: "Users Gained ",
+    //         data: tempData.map((data) => data.userGain),
+    //         borderColor: "#B69DF8",
+    //         borderWidth: 2
+    //       }
+    //       {
+    //         label: "Temp Baseline",
+    //         data: [0,300,500,1000],
+            
+    //       }
+    //     ]
+    // });
+    const [chartData2, setChartData2] = useState({
+        labels: impData.map((data) => data.year), 
+        datasets: [
+          {
+            label: "Users Gained ",
+            data: impData.map((data) => data.userLost),
+            borderColor: "#EFB8C8",
+            borderWidth: 2,
+          }
+        ]
+    });
+    
     return(
         <div class="back">
-            <br></br>
             <div class="navBar">
                 {NavBarItem(2)}
             </div>
-            <div style={{marginTop: "48px", marginBottom: "1000px"}}>
-                To be continued...
-            </div>
+            <main class="containerLogs">
+                <main class="containerTemp">
+                    <div class="Plot">
+                        <TempChart chartData={chartData1} />
+                    </div>
+                    <div class="Data">
+                        36.5°C
+                    </div>
+                </main>
+                <main class="containerImp">
+                    <div class="Plot">
+                        <ImpChart chartData={chartData2} />
+                    </div>
+                    <div class="Data">
+                        4MΩ
+                    </div>
+                </main>
+            </main>
         </div>
     )
-}
+};
