@@ -4,6 +4,7 @@ import './Login.css';
 import { Link } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import app from './firebase.js';
+import logo from './assets/logo.png';
 
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();

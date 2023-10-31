@@ -1,4 +1,5 @@
 import {ArduinoIoTCloud} from 'arduino-iot-js';
+var Buffer = require('buffer/').Buffer
 
 export default async function Arduino_iot (){
   try{
