@@ -19,9 +19,10 @@ export default function Inquiries () {
 
   const isSmallScreen = useMediaQuery('(max-width: 1200px)');
   
-  // useEffect (()=>{
-  //   Iot_client();
-  // }, []);
+  useEffect (()=>{
+    Arduino_iot()
+    // Iot_client();
+  }, []);
 
   return (
           
