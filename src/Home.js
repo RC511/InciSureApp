@@ -29,8 +29,8 @@ function getDate() {
 }
 
 function logOut() {
-    localStorage.removeItem("token");
-    sessionStorage.removeItem("token");
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     window.location.reload(true);
 }
 
@@ -86,7 +86,7 @@ export default function Home() {
         console.error(error);
     });
 
-    // onValue(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Warning"), (snapshot) => {
+    // onValue(ref(db, "/patients/"+getUID()+"/Warning"), (snapshot) => {
     //     if (snapshot.exists()) {
     //         console.log(snapshot.val())
     //         if(snapshot.val())
