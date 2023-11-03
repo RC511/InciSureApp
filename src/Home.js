@@ -13,8 +13,9 @@ import {MdLogout} from "react-icons/md";
 import {RiEmotionHappyLine} from "react-icons/ri"
 import {React, useState, createContext, useEffect} from 'react';
 import ReactSwitch from 'react-switch';
-import {get, ref} from 'firebase/database';
-import {db} from './firebase.js';
+import { db } from './firebase';
+import { get, ref, onValue } from '@firebase/database';
+import { getUID } from './TokenHandler.js';
 
 function getDate() {
     const today = new Date();
@@ -53,7 +54,8 @@ export default function Home() {
     const style_warn = { color: "red" };
     // const [sex, setSex] = useState("M");
 
-    get(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Sex")).then((snapshot) => {
+    
+    get(ref(db, "/patients/"+getUID()+"/Details/Sex")).then((snapshot) => {
         if (snapshot.exists()) {
             console.log(snapshot.val())
             setSex(snapshot.val());
@@ -76,6 +78,41 @@ export default function Home() {
             setSad(femSad);
         }
     }, [sex])
+
+    // const [trigerred, setTriggered] = useState(false);
+
+    // const handleTrigger = () =>v{
+    //     setTriggered(!trigerred);
+    // }
+    
+
+    get(ref(db, "/patients/"+getUID()+"/Warning")).then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log(snapshot.val())
+            if(snapshot.val())
+                setTheme("sick");
+            else
+                setTheme("healthy");
+        } else {
+            console.error("NO HEALTH DATA");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+
+    // onValue(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Warning"), (snapshot) => {
+    //     if (snapshot.exists()) {
+    //         console.log(snapshot.val())
+    //         if(snapshot.val())
+    //             setTheme("sick");
+    //         else
+    //             setTheme("healthy");
+    //     } else {
+    //         console.error("NO HEALTH DATA");
+    //     }
+    // });
+
+    
 
     return (
         <ThemeContext.Provider value = {{theme, toggleTheme}}>
