@@ -12,6 +12,7 @@ import { getUID } from "./TokenHandler";
 
 Chart.register(CategoryScale);
 
+let export1 = 3;
 
 export default function Logs() {
    
@@ -22,38 +23,19 @@ export default function Logs() {
       labels : [],
       datasets: [
         {
-          label: "Users Gained ",
+          label: "Temperature",
           data: [],
-          borderColor: "#B69DF8",
-          borderWidth: 2
-        },
-        {
-          label: "Temp Top",
-          data: [37.2,37.2,37.2,37.2,37.2],
-          borderColor: "red",
-          borderWidth: 1,
-          borderDash: [10, 5],
-          pointRadius: 0
-        },
-        {
-          label: "Temp Bottom",
-          data: [36.1,36.1,36.1,36.1,36.1],
-          borderColor: "red",
-          borderWidth: 1,
-          borderDash: [10, 5],
-          pointRadius: 0,
-          fill: '-1',
-          backgroundColor: "rgb(154,190,255,0.2)"
+          borderColor: "#EFB8C8",
+          borderWidth: 2,
         }
-
       ]
-    });
+  });
 
     const [chartData2, setChartData2] = useState({
       labels: [], 
       datasets: [
         {
-          label: "Users Gained ",
+          label: "Impedance",
           data: [],
           borderColor: "#EFB8C8",
           borderWidth: 2,
