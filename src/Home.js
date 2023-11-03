@@ -13,8 +13,10 @@ import {MdLogout} from "react-icons/md";
 import {RiEmotionHappyLine} from "react-icons/ri"
 import {React, useState, createContext, useEffect} from 'react';
 import ReactSwitch from 'react-switch';
-import {get, ref} from 'firebase/database';
+import { ref, get, onValue, query, off, limitToLast } from 'firebase/database';
 import {db} from './firebase.js';
+import Logs, { export2 } from './Logs.js';
+
 
 function getDate() {
     const today = new Date();
@@ -36,6 +38,7 @@ function logOut() {
 // maybe do background-image
 
 export const ThemeContext = createContext(null);
+
 
 export default function Home() {
     // const [trigerred, setTriggered] = useState(false);
@@ -77,6 +80,25 @@ export default function Home() {
         }
     }, [sex])
 
+    const [temperature, setTemperature] = useState("32.3°C")
+    useEffect(() => {
+        const dataRef = query(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data"),limitToLast(1));
+        const mapData = (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                const newData = Object.values(data);
+                setTemperature(newData[0].temp + "°C")
+            }
+        };
+        onValue(dataRef,mapData);
+        return () => {
+        // Unsubscribe from the listener when the component unmounts
+        off(dataRef, 'value', mapData);
+            };
+    }, [])
+
+
+
     return (
         <ThemeContext.Provider value = {{theme, toggleTheme}}>
         <div className='HomeHome' id = {theme}>
@@ -93,11 +115,13 @@ export default function Home() {
                             <h1 className='font-bold text-3xl'>WELCOME, Patient</h1>
                             
                             <h2 className='upper-heading2'> 
-                            <span className='inline-flex items-center text-2xl'>
-                                {theme === "sick" && <PiWarningFill size={50} className='mr-2' style = {style_warn} />}
-                            
-                                {theme === "healthy" ? "Your wound is doing"  : "Your wound requires immediate"} 
-                            </span>
+                            <div class='warning'>
+                                <span className='inline-flex items-center text-2xl'>
+                                    {theme === "sick" && <PiWarningFill size={50} className='mr-2' style = {style_warn} />}
+                                
+                                    {theme === "healthy" ? "Your wound is doing"  : "Your wound requires immediate"} 
+                                </span>
+                            </div>
                             <div className='cond-status-container items-center text-3xl font-extrabold'>
                                 <p className='condition-status mx-2'> {theme === "healthy" ? "WELL!" : "ATTENTION!"}</p>
                                 
@@ -120,9 +144,9 @@ export default function Home() {
                     </div>
                     <div class="lower-container">
                         <div className='lower-left'>
-                            <div className="inner-lower-left flex rounded-3xl bg-white shadow-2xl ">
+                            <div className="inner-lower-left flex rounded-3xl bg-box-blue shadow-2xl ">
                                 <p className="tempName">Temperature</p>
-                                <p className="tempValue">37.5°C</p>
+                                <p className="tempValue">{temperature}</p>
                             </div>
                         </div>
                         
@@ -132,7 +156,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='lower-right '>
-                            <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl">
+                            <div className="inner-lower-right flex rounded-3xl bg-box-blue shadow-2xl">
                                 <p className="dayCount">16</p>
                                 <p className="dayText">Days</p>
                             </div>
