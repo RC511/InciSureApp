@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import ChangePass from './ChangePass.js';
 import app from './firebase.js';
 import logo from './assets/logo.png';
 
 export default function Login({ setToken }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const mode = searchParams.get("mode");
+  const oobCode = searchParams.get("oobCode");
+  const apiKey = searchParams.get("apiKey");
+
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
   const [remember, setRemember] = useState(false);
+
+  if (mode == "resetPassword" && (oobCode) && apiKey == "AIzaSyDl0OFJkVUG67asXIenKo9YOjQ_ZJLvJ9c")
+  {
+    return (<ChangePass oobCode={oobCode}/>)
+  }
 
   const auth = getAuth(app);
 

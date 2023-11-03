@@ -27,6 +27,32 @@ function getDate() {
     return `${day}, ${date} ${month} ${year}`;
 }
 
+function getTime() {
+    const date = new Date();
+    const hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    if (minutes < 10)
+        minutes = "0" + minutes;
+    if (seconds < 10)
+        seconds = "0" + seconds;
+    const showTime = hours
+        + ':' + minutes 
+        + ":" + seconds;
+    return (showTime);
+}
+
+function getDaysFromNow(startString) {
+    const currentDate = new Date();
+    const startDay = parseInt(startString.substring(0, 2));
+    const startMonth = parseInt(startString.substring(3, 5));
+    const startYear = parseInt(startString.substring(6, 10));
+    const startDate = new Date(startYear, startMonth - 1, startDay)
+    var difference = currentDate.getTime() - startDate.getTime();
+    difference /= (1000 * 3600 * 24);
+    return(Math.floor(difference).toString());
+}
+
 function logOut() {
     localStorage.removeItem("user");
     sessionStorage.removeItem("user");
@@ -37,8 +63,12 @@ function logOut() {
 
 export const ThemeContext = createContext(null);
 
-
 export default function Home() {
+    const [patientHappy, setHappy] = useState(maleHappy);
+    const [patientSad, setSad] = useState(maleSad);
+    const [lastUpdatedTime, setUpdateTime] = useState(getTime());
+    const [daysUsingBandage, setDaysUsingBdge] = useState("--");
+
     // const [trigerred, setTriggered] = useState(false);
 
     // const handleTrigger = () =>v{
@@ -46,7 +76,7 @@ export default function Home() {
     // }
     const [theme, setTheme] = useState("healthy");
     const [sex, setSex] = useState("M");
-    const [elapseDays, setDays] = useState("");
+    
 
     const toggleTheme = () => {
         setTheme((curr) => (curr === "healthy" ? "sick" : "healthy"))
@@ -58,8 +88,15 @@ export default function Home() {
     
     get(ref(db, "/patients/"+getUID()+"/Details/Sex")).then((snapshot) => {
         if (snapshot.exists()) {
-            console.log(snapshot.val())
-            setSex(snapshot.val());
+            const sex = snapshot.val();
+            if (sex == "M") {
+                setHappy(maleHappy);
+                setSad(maleSad);
+            }
+            else if (sex == "F") {
+                setHappy(femHappy);
+                setSad(femSad);
+            }
         } else {
             console.error("NO SEX");
         }
@@ -67,8 +104,7 @@ export default function Home() {
         console.error(error);
     });
 
-    const [patientHappy, setHappy] = useState(maleHappy);
-    const [patientSad, setSad] = useState(maleSad);
+   
     useEffect(() => {
         if (sex === "M") {
             setHappy(maleHappy);
@@ -79,6 +115,16 @@ export default function Home() {
             setSad(femSad);
         }
     }, [sex])
+    
+    get(ref(db, "/patients/"+getUID()+"/Details/StartDate")).then((snapshot) => {
+        if (snapshot.exists()) {
+            setDaysUsingBdge(getDaysFromNow(snapshot.val()));
+        } else {
+            console.error("NO START DATE");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
 
     // const [trigerred, setTriggered] = useState(false);
 
@@ -90,6 +136,7 @@ export default function Home() {
     get(ref(db, "/patients/"+getUID()+"/Warning")).then((snapshot) => {
         if (snapshot.exists()) {
             console.log(snapshot.val())
+            setUpdateTime(getTime());
             if(snapshot.val())
                 setTheme("sick");
             else
@@ -106,6 +153,7 @@ export default function Home() {
     // onValue(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Warning"), (snapshot) => {
     //     if (snapshot.exists()) {
     //         console.log(snapshot.val())
+    //         setUpdateTime(getTime());
     //         if(snapshot.val())
     //             setTheme("sick");
     //         else
@@ -172,7 +220,7 @@ export default function Home() {
                             </div>
                             <div>
                                 <span> {getDate()}</span>
-                                <p class="lUpdate">Last updated...</p>
+                                <p class="lUpdate">{"Last updated "+ lastUpdatedTime}</p>
                             </div>
                                 
                         </div>
@@ -192,8 +240,8 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='lower-right '>
-                            <div className="inner-lower-right flex rounded-3xl bg-box-blue shadow-2xl">
-                                <p className="dayCount"></p>
+                            <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl">
+                                <p className="dayCount">{daysUsingBandage}</p>
                                 <p className="dayText">Days</p>
                             </div>
                             <div className="logOut">
