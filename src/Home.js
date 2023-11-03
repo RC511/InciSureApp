@@ -46,6 +46,7 @@ export default function Home() {
     // }
     const [theme, setTheme] = useState("healthy");
     const [sex, setSex] = useState("M");
+    const [elapseDays, setDays] = useState("");
 
     const toggleTheme = () => {
         setTheme((curr) => (curr === "healthy" ? "sick" : "healthy"))
@@ -99,6 +100,8 @@ export default function Home() {
     }).catch((error) => {
         console.error(error);
     });
+
+
 
     // onValue(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Warning"), (snapshot) => {
     //     if (snapshot.exists()) {
@@ -190,7 +193,7 @@ export default function Home() {
                         </div>
                         <div className='lower-right '>
                             <div className="inner-lower-right flex rounded-3xl bg-box-blue shadow-2xl">
-                                <p className="dayCount">16</p>
+                                <p className="dayCount"></p>
                                 <p className="dayText">Days</p>
                             </div>
                             <div className="logOut">
@@ -199,10 +202,7 @@ export default function Home() {
                                     <span>Log Out</span>
                                 </button>
                             </div>
-                            <div>
-                                <label> {theme === "healthy"? "Healthy mode": "Sick mode"}</label>
-                                <ReactSwitch onChange={toggleTheme} checked = {theme === "sick"}/>
-                            </div>
+                            
                             
                         {/* <button onClick={handleTrigger}>
                             Trigger Design Change
