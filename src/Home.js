@@ -3,14 +3,12 @@ import maleHappy from './assets/maleHappy.png';
 import maleSad from './assets/maleSad.png';
 import femHappy from './assets/femHappy.png';
 import femSad from './assets/femSad.png';
-import logOutSign from './assets/log-out-01.png';
 import './Home.css';
 import './NavBar.css';
 import NavBarItem from './NavBarItem.js';
 import { BsFillCalendarEventFill } from "react-icons/bs";
 import {PiWarningFill} from "react-icons/pi"
 import {MdLogout} from "react-icons/md";
-import {RiEmotionHappyLine} from "react-icons/ri"
 import {React, useState, createContext, useEffect} from 'react';
 import ReactSwitch from 'react-switch';
 import { db } from './firebase';
