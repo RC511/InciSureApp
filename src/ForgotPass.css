@@ -1,10 +1,31 @@
-h1.forgotPass {
-    color: #00286B;
-    text-align: center;
+.forgotDiv {
+    background: linear-gradient(180deg, #E6EFFF 0%, #FFF 100%);
     font-family: Lexend;
-    font-size: 40px;
-    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.forgotSubmit {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.forgotEmail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: baseline;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.cancelLink {
+    color: #00286B;
+    font-size: 16px;
     font-weight: 700;
-    line-height: 64px;
     letter-spacing: -0.25px;
+    text-align: center;
 }

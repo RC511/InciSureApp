@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import "./ForgotPass.css";
 import app from './firebase';
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import logo from './assets/logo.png';
 
 export default function ForgotPass() {
     const [username, setUserName] = useState();
@@ -28,32 +29,26 @@ export default function ForgotPass() {
     }
 
     return(
-        <div class="logDiv">
-            <br></br>
-            <h1 class="forgotPass">Forgot your password</h1>
-            <form onSubmit={handleSubmit}>
-                <label class="labelClass">
-                <p class="pLogin">Email</p>
-                <input class="inClass" type="email" onChange={e => setUserName(e.target.value)} required />
-                </label>
-                <div class="submitDiv">
-                <button type="submit" class="submitButton" disabled={loading}>SUBMIT</button>
-                </div>
-                <Link to="/">
-                  Cancel
-                </Link>
-                {/* <Link to="/changepswd">
-                  reset_pass
-                </Link> */}
-                
-
-                <Link to= {'/changepswd'} >resetPassword</Link>
-                  
-                
-                
-
-              
-            </form>
+      <div class="forgotDiv">
+        <div>
+          <img src={logo} class="loginLogo"/>
         </div>
+        <div class="login">Password recovery</div>     
+        <form class="forgotSubmit" onSubmit={handleSubmit}>
+          <div class="forgotEmail">
+            <p class="pLogin">Email</p>
+            <input class="inClass px-3" type="email" onChange={e => setUserName(e.target.value)} required />
+          </div>
+          <div class="submitDiv">
+            <button type="submit" class="submitButton bg-light-blue hover:bg-white" disabled={loading}>SUBMIT</button>
+          </div>
+          <Link class="cancelLink" to="/">
+            Cancel reset Password
+          </Link>
+        </form>
+
+          
+          
+      </div>
     );
 }

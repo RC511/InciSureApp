@@ -28,8 +28,8 @@ function getDate() {
 }
 
 function logOut() {
-    localStorage.removeItem("token");
-    sessionStorage.removeItem("token");
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     window.location.reload(true);
 }
 
