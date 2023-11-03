@@ -13,8 +13,8 @@ import {MdLogout} from "react-icons/md";
 import {RiEmotionHappyLine} from "react-icons/ri"
 import {React, useState, createContext, useEffect} from 'react';
 import ReactSwitch from 'react-switch';
-import { db } from './firebase';
-import { get, ref } from '@firebase/database';
+import {get, ref} from 'firebase/database';
+import {db} from './firebase.js';
 
 function getDate() {
     const today = new Date();
@@ -38,7 +38,20 @@ function logOut() {
 export const ThemeContext = createContext(null);
 
 export default function Home() {
+    // const [trigerred, setTriggered] = useState(false);
+
+    // const handleTrigger = () =>v{
+    //     setTriggered(!trigerred);
+    // }
+    const [theme, setTheme] = useState("healthy");
     const [sex, setSex] = useState("M");
+
+    const toggleTheme = () => {
+        setTheme((curr) => (curr === "healthy" ? "sick" : "healthy"))
+    }
+
+    const style_warn = { color: "red" };
+    // const [sex, setSex] = useState("M");
 
     get(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Sex")).then((snapshot) => {
         if (snapshot.exists()) {
@@ -54,28 +67,15 @@ export default function Home() {
     const [patientHappy, setHappy] = useState(maleHappy);
     const [patientSad, setSad] = useState(maleSad);
     useEffect(() => {
-        if (sex == "M") {
+        if (sex === "M") {
             setHappy(maleHappy);
             setSad(maleSad);
         }
-        else if (sex == "F") {
+        else if (sex === "F") {
             setHappy(femHappy);
             setSad(femSad);
         }
     }, [sex])
-
-    // const [trigerred, setTriggered] = useState(false);
-
-    // const handleTrigger = () =>v{
-    //     setTriggered(!trigerred);
-    // }
-    const [theme, setTheme] = useState("healthy");
-
-    const toggleTheme = () => {
-        setTheme((curr) => (curr === "healthy" ? "sick" : "healthy"))
-    }
-
-    const style_warn = { color: "red" };
 
     return (
         <ThemeContext.Provider value = {{theme, toggleTheme}}>
@@ -128,7 +128,7 @@ export default function Home() {
                         
                         <div className ="lower-mid">
                             <div className = "lower-mid-content">
-                                <img src={theme === "healthy" ? patientHappy : patientSad} className="img-responsive" alt="Male Happy"/>
+                                <img src={theme === "healthy" ? patientHappy : patientSad} className="img-responsive" alt="Patient Happy"/>
                             </div>
                         </div>
                         <div className='lower-right '>
