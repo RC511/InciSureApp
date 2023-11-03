@@ -8,6 +8,16 @@ function ImpChart({ chartData }) {
       <Line
         data={chartData}
         options={{
+          scales: {
+            y: {
+              display: true,
+              suggestedMin: 1000,
+              suggestedMax: 1500,
+              ticks: {
+                  stepValue: 100
+              }
+            }
+          },
           plugins: {
             title: {
               display: true,

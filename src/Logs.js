@@ -23,6 +23,7 @@ export default function Logs() {
    
     const [tempData, setTempData] = useState([])
     const [temperature, setTemperature] = useState("32.3°C")
+    const [impedance, setImpedance] = useState("")
     const [chartData1, setChartData1] = useState({
       labels : [],
       datasets: [
@@ -54,6 +55,18 @@ export default function Logs() {
       ]
     });
 
+    const [chartData2, setChartData2] = useState({
+      labels: [], 
+      datasets: [
+        {
+          label: "Users Gained ",
+          data: [],
+          borderColor: "#EFB8C8",
+          borderWidth: 2,
+        }
+      ]
+  });
+
     useEffect(() => {
       const dataRef = query(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data"),limitToLast(5));
 
@@ -63,8 +76,9 @@ export default function Logs() {
           const newData = Object.values(data);
           setTemperature(newData[4].temp + "°C")
           setTempData(newData);
+          setImpedance(newData[4].imp+ "Ω")
 
-          const updatedChartData = {
+          const updatedChartData1 = {
             labels: newData.map((entry)=> entry.time),
             datasets: [
               {
@@ -93,7 +107,38 @@ export default function Logs() {
               }
             ]
           };
-          setChartData1(updatedChartData)
+          setChartData1(updatedChartData1)
+
+          const updatedChartData2 = {
+            labels: newData.map((entry)=> entry.time),
+            datasets: [
+              {
+                label: "Users Gained",
+                data: newData.map((entry) => entry.imp),
+                borderColor: "#B69DF8",
+                borderWidth: 2
+              },
+              {
+                label: "Imp Top",
+                data: [1300,1300,1300,1300,1300],
+                borderColor: "red",
+                borderWidth: 1,
+                borderDash: [10, 5],
+                pointRadius: 0
+              },
+              {
+                label: "Imp Bottom",
+                data: [1200,1200,1200,1200,1200],
+                borderColor: "red",
+                borderWidth: 1,
+                borderDash: [10, 5],
+                pointRadius: 0,
+                fill: '-1',
+                backgroundColor: "rgb(154,190,255,0.2)"
+              }
+            ]
+          };
+          setChartData2(updatedChartData2)
           
         }
      };
@@ -105,64 +150,8 @@ export default function Logs() {
           };
     }, [])
 
-    // onValue(ref(db,'/tunky/wunky'), snapshot => {
-    //     const data = snapshot.val();
-    //     if(data)
-    //         console.log(data);
-    //     else
-    //         console.log("NONE");
-    // })
+
     
-    
-    // get(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data")).then((snapshot) => {
-    //     if (snapshot.exists()) {
-    //       console.log(snapshot.val());
-    //     } else {
-    //       console.log("No data available");
-    //     }
-    //   }).catch((error) => {
-    //     console.error(error);
-    //   });
-    
-    // const chartData1 = {
-    //     labels: tempData.map((data) => data.year), 
-    //     datasets: [
-    //       {
-    //         label: "Users Gained ",
-    //         data: tempData.map((data) => data.userGain),
-    //         borderColor: "#B69DF8",
-    //         borderWidth: 2
-    //       },
-          
-    //     ]
-    // };
-    // const [chartData1, setChartData1] = useState({
-    //     labels: tempData.map((data) => data.year), 
-    //     datasets: [
-    //       {
-    //         label: "Users Gained ",
-    //         data: tempData.map((data) => data.userGain),
-    //         borderColor: "#B69DF8",
-    //         borderWidth: 2
-    //       }
-    //       {
-    //         label: "Temp Baseline",
-    //         data: [0,300,500,1000],
-            
-    //       }
-    //     ]
-    // });
-    const [chartData2, setChartData2] = useState({
-        labels: impData.map((data) => data.year), 
-        datasets: [
-          {
-            label: "Users Gained ",
-            data: impData.map((data) => data.userLost),
-            borderColor: "#EFB8C8",
-            borderWidth: 2,
-          }
-        ]
-    });
     
     return(
         <div class="back">
@@ -183,7 +172,7 @@ export default function Logs() {
                         <ImpChart chartData={chartData2} />
                     </div>
                     <div class="Data">
-                        4MΩ
+                        {impedance}
                     </div>
                 </main>
             </main>
