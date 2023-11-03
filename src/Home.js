@@ -144,7 +144,7 @@ export default function Home() {
                     </div>
                     <div class="lower-container">
                         <div className='lower-left'>
-                            <div className="inner-lower-left flex rounded-3xl bg-box-blue shadow-2xl ">
+                            <div className="inner-lower-left flex rounded-3xl bg-box-blue shadow-2xl">
                                 <p className="tempName">Temperature</p>
                                 <p className="tempValue">{temperature}</p>
                             </div>
