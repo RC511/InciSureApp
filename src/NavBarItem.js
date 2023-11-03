@@ -44,20 +44,20 @@ export default function NavBarItem(type) {
         <div className = "menu-icon" onClick={handleClick}>
         {click ? <FaTimes/> : <FaBars/>}
         </div>
-        {/* <ul className= {click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
+        {/* <div className= {click ? 'nav-menu active' : 'nav-menu'}>
+            <div className='nav-item'>
                 <link to = "/" className='nav-links'> Home </link>
-            </li>
-            <li className='nav-item'>
+            </div>
+            <div className='nav-item'>
                 <link to = "/logs" className='nav-links'> Medical Logs </link>
-            </li>
-            <li className='nav-item'>
+            </div>
+            <div className='nav-item'>
                 <link to = "/inquiries" className='nav-links'> Inquiries </link>
-            </li>
-            <li className='nav-item'>
+            </div>
+            <div className='nav-item'>
                 <link to = "/profile" className='nav-links'> Profile</link>
-            </li>
-        </ul> */}
+            </div>
+        </div> */}
         
             <div className="flex justify-center items-center">
                 <Link to="/" className= {`

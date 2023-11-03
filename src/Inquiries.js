@@ -21,7 +21,7 @@ export default function Inquiries () {
   
   useEffect (()=>{
     Arduino_iot()
-    // Iot_client();
+    //Iot_client();
   }, []);
 
   return (

@@ -2,8 +2,10 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import {
-  getFirestore , collection, getDocs
+  initializeFirestore, getFirestore , collection, getDocs
 } from 'firebase/firestore'
+import { getDatabase } from "firebase/database";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,15 +26,20 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // init services
-const db = getFirestore();
+//const db = getFirestore();
+
+
+
+//const db = initializeFirestore(app, {useFetchStreams: false})
 
 // collection ref
-const colRef  = collection(db,"dummy_data")
+//const colRef  = collection(db,"dummy_data")
 
 // get collection data
-getDocs(colRef)
-  .then((snapshot) => {
-    console.log(snapshot.docs)
-  })
+// getDocs(colRef)
+//   .then((snapshot) => {
+//     console.log(snapshot.docs)
+//   })
 
 export default app;
+export const db = getDatabase(app);

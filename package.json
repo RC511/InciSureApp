@@ -41,6 +41,7 @@
     "react-switch": "^7.0.0",
     "sort-by": "^1.2.0",
     "typescript": "^4.1.6",
+    "uid": "^2.0.2",
     "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
@@ -48,7 +49,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -73,6 +75,7 @@
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "https-browserify": "^1.0.0",
+    "nodemon": "^3.0.1",
     "os-browserify": "^0.3.0",
     "process": "^0.11.10",
     "react-app-rewired": "^2.2.1",
