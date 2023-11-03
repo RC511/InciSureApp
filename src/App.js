@@ -11,7 +11,6 @@ import ChangePass from './ChangePass';
 //import ChangePass from './ChangePass.component';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import {ArduinoIoTCloud} from 'arduino-iot-js';
 
 import '@fontsource/lexend';
 

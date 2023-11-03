@@ -18,8 +18,10 @@ export default function Login({ setToken }) {
     signInWithEmailAndPassword(auth, username, password)
     .then((userCredential) => {
       // Signed in 
+      console.log("CHEK00");
+      console.log(userCredential);
       const user = userCredential.user;
-      setToken(remember, JSON.parse("{\"token\":\""+user+"\"}"));
+      setToken(remember, user);
     })
     .catch((error) => {
       const errorCode = error.code;
