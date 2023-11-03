@@ -42,11 +42,11 @@ export default function Login({ setToken }) {
         <form onSubmit={handleSubmit}>
           <main class="labelClass">
             <div class="pLogin">Email</div>
-            <input class="inClass" type="email" onChange={e => setUserName(e.target.value)} required />
+            <input class="inClass px-3" type="email" onChange={e => setUserName(e.target.value)} required />
           </main>
           <main class="labelClass">
             <div class="pLogin">Password</div>
-            <input class="inClass" type="password" onChange={e => setPassword(e.target.value)} required />
+            <input class="inClass px-3" type="password" onChange={e => setPassword(e.target.value)} required />
           </main>
           <main class="bottomLogin">
             <div class="rememb">

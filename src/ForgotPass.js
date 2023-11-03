@@ -37,7 +37,7 @@ export default function ForgotPass() {
         <form class="forgotSubmit" onSubmit={handleSubmit}>
           <div class="forgotEmail">
             <p class="pLogin">Email</p>
-            <input class="inClass" type="email" onChange={e => setUserName(e.target.value)} required />
+            <input class="inClass px-3" type="email" onChange={e => setUserName(e.target.value)} required />
           </div>
           <div class="submitDiv">
             <button type="submit" class="submitButton bg-light-blue hover:bg-white" disabled={loading}>SUBMIT</button>
