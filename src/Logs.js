@@ -12,9 +12,11 @@ import { impData } from "./utils/impData";
 import TempChart from "./utils/TempChart";
 import ImpChart from "./utils/ImpChart";
 import {
-  getFirestore , collection, getDocs
+  getFirestore , collection, getDocs, initializeFirestore
 } from 'firebase/firestore'
-import app from "./firebase.js";
+import {db} from "./firebase.js";
+import { uid } from "uid";
+import { onChildAdded,ref,get, Database, onValue } from "firebase/database";
 // import { getAuth } from "firebase/auth";
 
 Chart.register(CategoryScale);
@@ -22,28 +24,72 @@ Chart.register(CategoryScale);
 
 export default function Logs() {
     // init services
-    const db = getFirestore(app);  
-    // collection ref
-    const colRef  = collection(db,"dummy_data")
+    // const db = initializeFirestore(app, {useFetchStreams: false})  
+    // // collection ref
+    // const colRef  = collection(db,"dummy_data")
 
-    const [dummy_data, setData] = useState([]);
+    // const [dummy_data, setData] = useState([]);
 
+//     useEffect(() => {
+//         const fetchData = async() => {
+//             try {
+//                 const snapshot = await getDocs(colRef);
+//                 const dataFromFirestore = snapshot.docs.map((doc) => doc.data());
+//                 setData(dataFromFirestore);
+//                 // Log the data to the console
+//                 console.log('Data from Firestore:', dataFromFirestore);
+//             } catch(error) {
+//                 console.error('Error getting data:', error)
+//             }
+//     };
+
+//     fetchData();
+// }, []);
+
+    // useEffect(() => {
+    //     const commentsRef = ref(db, 'tunky/wunky/' + 'TempID');
+    //     onChildAdded(commentsRef, (data) => {
+    //         addCommentElement(postElement, data.key, data.val())
+    //     })
+    //     });
+    
+    // const [, setData] = useState(null);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         // let ref = Database.database("https://bg4103-trial-default-rtdb.asia-southeast1.firebasedatabase.app")
+    //         const commentsRef = ref(db, 'tunky/wunky');
+      
+    //         try {
+    //           const snapshot = await get(commentsRef);
+    //           if (snapshot.exists()) {
+    //             setData(snapshot.val());
+    //             const data1 = snapshot.val()
+    //             console.log('Data from Firebase:', data1);
+    //             setData(data1);
+    //           } else {
+    //             setData(null);
+    //           }
+    //         } catch (error) {
+    //           console.error('Error reading data:', error);
+    //         }
+    //       };
+      
+    //     fetchData();
+    //     }, []);
+    const [tempData, setTemp] = useState([])
+    
     useEffect(() => {
-        const fetchData = async() => {
-            try {
-                const snapshot = await getDocs(colRef);
-                const dataFromFirestore = snapshot.docs.map((doc) => doc.data());
-                setData(dataFromFirestore);
-                // Log the data to the console
-                console.log('Data from Firestore:', dataFromFirestore);
-            } catch(error) {
-                console.error('Error getting data:', error)
-            }
-        };
-
-        fetchData();
-    }, []);
-
+      onValue(ref(db,'tunky/wunky'), snapshot => {
+        const data = snapshot.val();
+        if(data !== null){
+          Object.values(data.map(tempData) => {
+            setTemp()
+          })
+        }
+      })
+    })
+    
+    
     const chartData1 = {
         labels: tempData.map((data) => data.year), 
         datasets: [
