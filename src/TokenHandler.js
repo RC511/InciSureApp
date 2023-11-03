@@ -1,5 +1,20 @@
 import { useState } from 'react';
 
+export function getUID() {
+  let tokenString = localStorage.getItem('user');
+  if (!tokenString)
+    tokenString = sessionStorage.getItem('user');
+  if (!tokenString)
+  {
+    return null;
+  }
+  else
+  {
+    const user = JSON.parse(tokenString);
+    return user.uid;
+  }
+}
+
 export default function useToken() {
   const getToken = () => {
     let tokenString = localStorage.getItem('user');

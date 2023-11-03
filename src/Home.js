@@ -14,7 +14,8 @@ import {RiEmotionHappyLine} from "react-icons/ri"
 import {React, useState, createContext, useEffect} from 'react';
 import ReactSwitch from 'react-switch';
 import { db } from './firebase';
-import { get, ref } from '@firebase/database';
+import { get, ref, onValue } from '@firebase/database';
+import { getUID } from './TokenHandler.js';
 
 function getDate() {
     const today = new Date();
@@ -40,7 +41,7 @@ export const ThemeContext = createContext(null);
 export default function Home() {
     const [sex, setSex] = useState("M");
 
-    get(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Sex")).then((snapshot) => {
+    get(ref(db, "/patients/"+getUID()+"/Details/Sex")).then((snapshot) => {
         if (snapshot.exists()) {
             console.log(snapshot.val())
             setSex(snapshot.val());
@@ -70,6 +71,32 @@ export default function Home() {
     //     setTriggered(!trigerred);
     // }
     const [theme, setTheme] = useState("healthy");
+
+    get(ref(db, "/patients/"+getUID()+"/Warning")).then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log(snapshot.val())
+            if(snapshot.val())
+                setTheme("sick");
+            else
+                setTheme("healthy");
+        } else {
+            console.error("NO HEALTH DATA");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+
+    // onValue(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Warning"), (snapshot) => {
+    //     if (snapshot.exists()) {
+    //         console.log(snapshot.val())
+    //         if(snapshot.val())
+    //             setTheme("sick");
+    //         else
+    //             setTheme("healthy");
+    //     } else {
+    //         console.error("NO HEALTH DATA");
+    //     }
+    // });
 
     const toggleTheme = () => {
         setTheme((curr) => (curr === "healthy" ? "sick" : "healthy"))
