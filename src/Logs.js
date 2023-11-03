@@ -11,124 +11,131 @@ import { impData } from "./utils/impData";
 // import LineChart from "./utils/LineChart";
 import TempChart from "./utils/TempChart";
 import ImpChart from "./utils/ImpChart";
-import {
-  getFirestore , collection, getDocs, initializeFirestore
-} from 'firebase/firestore'
 import {db} from "./firebase.js";
-import { onChildAdded, ref, get, Database, onValue } from "firebase/database";
+import { onChildAdded, ref, get, Database, onValue, query, off, limitToLast } from "firebase/database";
+// import { limitToLast } from "firebase/firestore";
 // import { getAuth } from "firebase/auth";
 
 Chart.register(CategoryScale);
 
 
 export default function Logs() {
-    // init services
-    // const db = initializeFirestore(app, {useFetchStreams: false})  
-    // // collection ref
-    // const colRef  = collection(db,"dummy_data")
-
-    // const [dummy_data, setData] = useState([]);
-
-//     useEffect(() => {
-//         const fetchData = async() => {
-//             try {
-//                 const snapshot = await getDocs(colRef);
-//                 const dataFromFirestore = snapshot.docs.map((doc) => doc.data());
-//                 setData(dataFromFirestore);
-//                 // Log the data to the console
-//                 console.log('Data from Firestore:', dataFromFirestore);
-//             } catch(error) {
-//                 console.error('Error getting data:', error)
-//             }
-//     };
-
-//     fetchData();
-// }, []);
-
-    // useEffect(() => {
-    //     const commentsRef = ref(db, 'tunky/wunky/' + 'TempID');
-    //     onChildAdded(commentsRef, (data) => {
-    //         addCommentElement(postElement, data.key, data.val())
-    //     })
-    //     });
-    
-    // const [, setData] = useState(null);
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         // let ref = Database.database("https://bg4103-trial-default-rtdb.asia-southeast1.firebasedatabase.app")
-    //         const commentsRef = ref(db, 'tunky/wunky');
-      
-    //         try {
-    //           const snapshot = await get(commentsRef);
-    //           if (snapshot.exists()) {
-    //             setData(snapshot.val());
-    //             const data1 = snapshot.val()
-    //             console.log('Data from Firebase:', data1);
-    //             setData(data1);
-    //           } else {
-    //             setData(null);
-    //           }
-    //         } catch (error) {
-    //           console.error('Error reading data:', error);
-    //         }
-    //       };
-      
-    //     fetchData();
-    //     }, []);
-    const [tempData, setTemp] = useState([])
-    
-    // useEffect(() => {
-      
-    // })
-
-    onValue(ref(db,'/tunky/wunky'), snapshot => {
-        const data = snapshot.val();
-        if(data)
-            console.log(data);
-        else
-            console.log("NONE");
-    })
-    
-    
-    get(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data")).then((snapshot) => {
-        if (snapshot.exists()) {
-          console.log(snapshot.val());
-        } else {
-          console.log("No data available");
+   
+    const [tempData, setTempData] = useState([])
+    const [temperature, setTemperature] = useState("32.3°C")
+    const [chartData1, setChartData1] = useState({
+      labels : [],
+      datasets: [
+        {
+          label: "Users Gained ",
+          data: [],
+          borderColor: "#B69DF8",
+          borderWidth: 2
+        },
+        {
+          label: "Temp Top",
+          data: [37.2,37.2,37.2,37.2,37.2],
+          borderColor: "red",
+          borderWidth: 1,
+          borderDash: [10, 5],
+          pointRadius: 0
+        },
+        {
+          label: "Temp Bottom",
+          data: [36.1,36.1,36.1,36.1,36.1],
+          borderColor: "red",
+          borderWidth: 1,
+          borderDash: [10, 5],
+          pointRadius: 0,
+          fill: '-1',
+          backgroundColor: "rgb(154,190,255,0.2)"
         }
-      }).catch((error) => {
-        console.error(error);
-      });
+
+      ]
+    });
+
+    useEffect(() => {
+      const dataRef = query(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data"),limitToLast(5));
+
+      const mapData = (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const newData = Object.values(data);
+          setTemperature(newData[4].temp + "°C")
+          setTempData(newData);
+
+          const updatedChartData = {
+            labels: newData.map((entry)=> entry.time),
+            datasets: [
+              {
+                label: "Users Gained",
+                data: newData.map((entry) => entry.temp),
+                borderColor: "#B69DF8",
+                borderWidth: 2
+              },
+              {
+                label: "Temp Top",
+                data: [37.2,37.2,37.2,37.2,37.2],
+                borderColor: "red",
+                borderWidth: 1,
+                borderDash: [10, 5],
+                pointRadius: 0
+              },
+              {
+                label: "Temp Bottom",
+                data: [36.1,36.1,36.1,36.1,36.1],
+                borderColor: "red",
+                borderWidth: 1,
+                borderDash: [10, 5],
+                pointRadius: 0,
+                fill: '-1',
+                backgroundColor: "rgb(154,190,255,0.2)"
+              }
+            ]
+          };
+          setChartData1(updatedChartData)
+          
+        }
+     };
+
+     onValue(dataRef,mapData);
+      return () => {
+        // Unsubscribe from the listener when the component unmounts
+        off(dataRef, 'value', mapData);
+          };
+    }, [])
+
+    // onValue(ref(db,'/tunky/wunky'), snapshot => {
+    //     const data = snapshot.val();
+    //     if(data)
+    //         console.log(data);
+    //     else
+    //         console.log("NONE");
+    // })
     
-    const chartData1 = {
-        labels: tempData.map((data) => data.year), 
-        datasets: [
-          {
-            label: "Users Gained ",
-            data: tempData.map((data) => data.userGain),
-            borderColor: "#B69DF8",
-            borderWidth: 2
-          },
-          {
-            label: "Temp Top",
-            data: [37.2,37.2,37.2,37.2,37.2],
-            borderColor: "red",
-            borderWidth: 1,
-            borderDash: [10, 5],
-            pointRadius: 0
-          },
-          {
-            label: "Temp Bottom",
-            data: [36.1,36.1,36.1,36.1,36.1],
-            borderColor: "red",
-            borderWidth: 1,
-            borderDash: [10, 5],
-            pointRadius: 0,
-            fill: '-1',
-            backgroundColor: "rgb(154,190,255,0.2)"
-          }
-        ]
-    };
+    
+    // get(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data")).then((snapshot) => {
+    //     if (snapshot.exists()) {
+    //       console.log(snapshot.val());
+    //     } else {
+    //       console.log("No data available");
+    //     }
+    //   }).catch((error) => {
+    //     console.error(error);
+    //   });
+    
+    // const chartData1 = {
+    //     labels: tempData.map((data) => data.year), 
+    //     datasets: [
+    //       {
+    //         label: "Users Gained ",
+    //         data: tempData.map((data) => data.userGain),
+    //         borderColor: "#B69DF8",
+    //         borderWidth: 2
+    //       },
+          
+    //     ]
+    // };
     // const [chartData1, setChartData1] = useState({
     //     labels: tempData.map((data) => data.year), 
     //     datasets: [
@@ -168,7 +175,7 @@ export default function Logs() {
                         <TempChart chartData={chartData1} />
                     </div>
                     <div class="Data">
-                        36.5°C
+                        {temperature}
                     </div>
                 </main>
                 <main class="containerImp">
