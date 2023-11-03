@@ -15,8 +15,7 @@ import {
   getFirestore , collection, getDocs, initializeFirestore
 } from 'firebase/firestore'
 import {db} from "./firebase.js";
-import { uid } from "uid";
-import { onChildAdded,ref,get, Database, onValue } from "firebase/database";
+import { onChildAdded, ref, get, Database, onValue } from "firebase/database";
 // import { getAuth } from "firebase/auth";
 
 Chart.register(CategoryScale);
@@ -78,17 +77,28 @@ export default function Logs() {
     //     }, []);
     const [tempData, setTemp] = useState([])
     
-    useEffect(() => {
-      onValue(ref(db,'tunky/wunky'), snapshot => {
+    // useEffect(() => {
+      
+    // })
+
+    onValue(ref(db,'/tunky/wunky'), snapshot => {
         const data = snapshot.val();
-        if(data !== null){
-          Object.values(data.map(tempData) => {
-            setTemp()
-          })
-        }
-      })
+        if(data)
+            console.log(data);
+        else
+            console.log("NONE");
     })
     
+    
+    get(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data")).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
     
     const chartData1 = {
         labels: tempData.map((data) => data.year), 

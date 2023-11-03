@@ -11,8 +11,10 @@ import { BsFillCalendarEventFill } from "react-icons/bs";
 import {PiWarningFill} from "react-icons/pi"
 import {MdLogout} from "react-icons/md";
 import {RiEmotionHappyLine} from "react-icons/ri"
-import {React, useState, createContext} from 'react';
+import {React, useState, createContext, useEffect} from 'react';
 import ReactSwitch from 'react-switch';
+import { db } from './firebase';
+import { get, ref } from '@firebase/database';
 
 function getDate() {
     const today = new Date();
@@ -36,6 +38,32 @@ function logOut() {
 export const ThemeContext = createContext(null);
 
 export default function Home() {
+    const [sex, setSex] = useState("M");
+
+    get(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Sex")).then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log(snapshot.val())
+            setSex(snapshot.val());
+        } else {
+            console.error("NO SEX");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+
+    const [patientHappy, setHappy] = useState(maleHappy);
+    const [patientSad, setSad] = useState(maleSad);
+    useEffect(() => {
+        if (sex == "M") {
+            setHappy(maleHappy);
+            setSad(maleSad);
+        }
+        else if (sex == "F") {
+            setHappy(femHappy);
+            setSad(femSad);
+        }
+    }, [sex])
+
     // const [trigerred, setTriggered] = useState(false);
 
     // const handleTrigger = () =>v{
@@ -100,7 +128,7 @@ export default function Home() {
                         
                         <div className ="lower-mid">
                             <div className = "lower-mid-content">
-                                <img src={theme === "healthy" ? maleHappy : maleSad} className="img-responsive" alt="Male Happy"/>
+                                <img src={theme === "healthy" ? patientHappy : patientSad} className="img-responsive" alt="Male Happy"/>
                             </div>
                         </div>
                         <div className='lower-right '>

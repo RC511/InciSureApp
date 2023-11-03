@@ -16,7 +16,8 @@ const firebaseConfig = {
   projectId: "bg4103-trial",
   storageBucket: "bg4103-trial.appspot.com",
   messagingSenderId: "909208369703",
-  appId: "1:909208369703:web:db7ec33ac8d2d25e386c02"
+  appId: "1:909208369703:web:db7ec33ac8d2d25e386c02",
+  databaseURL: "https://bg4103-trial-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
 // Initialize Firebase
