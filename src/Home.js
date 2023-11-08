@@ -240,7 +240,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='lower-right '>
-                            <div className="inner-lower-right flex rounded-3xl bg-white shadow-2xl">
+                            <div className="inner-lower-right flex rounded-3xl bg-box-blue shadow-2xl">
                                 <p className="dayCount">{daysUsingBandage}</p>
                                 <p className="dayText">Days</p>
                             </div>

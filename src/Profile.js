@@ -53,7 +53,7 @@ export default function Profile() {
 
     return(
         <div class="backgr">
-            <br></br>
+            {/* <br></br> */}
             <div class="navBar">
                 {NavBarItem(4)}
             </div>

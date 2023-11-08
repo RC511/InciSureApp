@@ -11,8 +11,8 @@ function ImpChart({ chartData }) {
           scales: {
             y: {
               display: true,
-              suggestedMin: 1000,
-              suggestedMax: 1500,
+              suggestedMin: 20000,
+              suggestedMax: 40000,
               ticks: {
                   stepValue: 100
               }

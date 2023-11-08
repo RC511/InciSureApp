@@ -1,6 +1,8 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
+
+
 function TempChart({ chartData }) {
   return (
     <div className="chart-container">
@@ -15,12 +17,15 @@ function TempChart({ chartData }) {
                 color: '#01358C',
                 font: {
                     size: 20
-                  }
+                  },
+            
             },
             legend: {
                 display: false,
             }
           },
+          
+
           scales: {
             y: {
               display: true,

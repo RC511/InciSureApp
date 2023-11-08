@@ -44,7 +44,7 @@ export default function Logs() {
   });
 
     useEffect(() => {
-      const dataRef = query(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data"),limitToLast(5));
+      const dataRef = query(ref(db, "/patients/uzC7yC9cJQWeqVb0hKf3rJ19KRW2/Data"),limitToLast(10));
 
       const mapData = (snapshot) => {
         const data = snapshot.val();
@@ -66,7 +66,7 @@ export default function Logs() {
               },
               {
                 label: "Temp Top",
-                data: [37.2,37.2,37.2,37.2,37.2],
+                data: Array(newData.length).fill(37.2),
                 borderColor: "red",
                 borderWidth: 1,
                 borderDash: [10, 5],
@@ -74,7 +74,7 @@ export default function Logs() {
               },
               {
                 label: "Temp Bottom",
-                data: [36.1,36.1,36.1,36.1,36.1],
+                data: Array(newData.length).fill(36.1),
                 borderColor: "red",
                 borderWidth: 1,
                 borderDash: [10, 5],
@@ -83,6 +83,7 @@ export default function Logs() {
                 backgroundColor: "rgb(154,190,255,0.2)"
               }
             ]
+          
           };
           setChartData1(updatedChartData1)
 
@@ -113,7 +114,8 @@ export default function Logs() {
                 fill: '-1',
                 backgroundColor: "rgb(154,190,255,0.2)"
               }
-            ]
+            ],
+          
           };
           setChartData2(updatedChartData2)
           

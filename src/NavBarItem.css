@@ -1,7 +1,35 @@
 
-.nav{
+nav{
+    display: flex;
     transition: .3s;
+    background-color: rgb(223, 233, 248);
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    height: 2.5rem;
+    border-color: rgb(30 58 138);
+    border-width: 2px;
+    border-radius: 0.5rem;
+    padding-left: 1.25rem; /* 20px */
+    padding-right: 1.25rem;
+    width: 80%;
+    /* position: sticky;
+    top:0; */
+    
 }
+
+.navItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* nav div li a:not(.active) hover{
+    background-color: aqua;
+} */
+
+
+
 .sticky-nav{
     background: rgb(209, 224, 255);
 }
@@ -19,30 +47,79 @@
     margin: auto;
 }
 
-div.top {
-    opacity: 0%;
-    font-size:2px;
+nav .menu-icon {
+    display: none;
+    left: 0.75rem;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-div.bottom {
+@media (max-width: 830px){
+    nav .menu-icon{
+        display: flex;
+    
+        margin-left: 25px;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        border: none;
+        
+        background-color:rgb(223, 233, 248) ;
+        gap: 1rem;
+        position: sticky;
+        
+    }
+
+    .navItem{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        align-items: start;
+        align-content: start;
+        justify-content: start;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-align: center;
+        margin-top: 0.5rem;
+        
+    }
+
+    .navItem-open{
+        display: flex;
+    }
+
+    .navImg{
+        display: none;
+    }
+
+    .navImg-open{
+        display: flex;
+    }
+
+    .selectedItem {
+        opacity: 100%;
+        margin: auto;
+
+    }
+    
+    .unselectedItem {
+        opacity: 42%;
+        margin: auto;
+    }
+
 }
 
-div.left {
-    width: 25%;
-    float: left;
-}
 
-div.middle {
-    width: 25%;
-    float: left;
-}
-
-div.right {
-    width: 25%;
-    float: left;
-}
-
-img.pages {
+/* img.pages {
     vertical-align: middle;
     margin-right: 5px;
     margin-left: 5%;
@@ -50,4 +127,4 @@ img.pages {
 
 span.pages {
     margin-right: 10%;
-}
+} */
