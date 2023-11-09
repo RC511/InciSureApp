@@ -66,7 +66,7 @@ export default function Logs() {
               },
               {
                 label: "Temp Top",
-                data: Array(newData.length).fill(37.2),
+                data: Array(newData.length).fill(36),
                 borderColor: "red",
                 borderWidth: 1,
                 borderDash: [10, 5],
@@ -74,7 +74,7 @@ export default function Logs() {
               },
               {
                 label: "Temp Bottom",
-                data: Array(newData.length).fill(36.1),
+                data: Array(newData.length).fill(33),
                 borderColor: "red",
                 borderWidth: 1,
                 borderDash: [10, 5],
@@ -96,24 +96,7 @@ export default function Logs() {
                 borderColor: "#B69DF8",
                 borderWidth: 2
               },
-              {
-                label: "Imp Top",
-                data: [1300,1300,1300,1300,1300],
-                borderColor: "red",
-                borderWidth: 1,
-                borderDash: [10, 5],
-                pointRadius: 0
-              },
-              {
-                label: "Imp Bottom",
-                data: [1200,1200,1200,1200,1200],
-                borderColor: "red",
-                borderWidth: 1,
-                borderDash: [10, 5],
-                pointRadius: 0,
-                fill: '-1',
-                backgroundColor: "rgb(154,190,255,0.2)"
-              }
+              
             ],
           
           };
@@ -153,22 +136,27 @@ export default function Logs() {
               </div>
               <main class="containerLogs">
                   <main class="containerValue">
-                      
-                      <div class="Plot">
-                          <TempChart chartData={chartData1} />
-                      </div>
-                      <div className="boxValue">
-                        <div className = "warning">
-                          
+                     
+                    <div class="Plot">
+                        <TempChart chartData={chartData1} />
+                    </div>
+
+                    <div className="boxValue">
+                    {theme === 'sick' ? (
+                      <div className = "box-warning border-2 px-2 border-red-600 rounded-2xl shadow-md shadow-red-200"> 
+                        
                         <span className='inline-flex items-center text-m'>
-                          {theme === "sick" && <PiWarningFill size={25} className='mr-2' style = {style_warn} />}
-                          {theme === "sick" &&"Current measurement deviates from normal state"}  
+                        <PiWarningFill size={60} className='mr-2' style = {style_warn} />
+                        Current measurement deviates from normal state
                         </span>
-                        </div>
-                        <div class="Data">
-                            {temperature}
-                        </div>
+                        
                       </div>
+                      ): null}
+                      <div class="Data">
+                          {temperature}
+                      </div>
+
+                    </div>
                       
                   </main>
                   <main class="containerValue">

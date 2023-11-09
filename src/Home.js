@@ -1,7 +1,7 @@
-import maleHappy from './assets/maleHappy.png';
-import maleSad from './assets/maleSad.png';
-import femHappy from './assets/femHappy.png';
-import femSad from './assets/femSad.png';
+import maleHappy from './assets/malehappy2.png';
+import maleSad from './assets/malesad2.png';
+import femHappy from './assets/femalehappy2.png';
+import femSad from './assets/femalesad2.png';
 import './Home.css';
 import './NavBar.css';
 import NavBarItem from './NavBarItem.js';
@@ -13,7 +13,7 @@ import ReactSwitch from 'react-switch';
 import { db } from './firebase';
 import { getUID } from './TokenHandler.js';
 import { ref, get, onValue, query, off, limitToLast } from 'firebase/database';
-
+import { Tooltip } from 'react-tooltip';
 
 
 function getDate() {
@@ -198,19 +198,37 @@ export default function Home() {
                         <div className="upper-mid">
                             <h1 className='font-bold text-3xl'>WELCOME, Patient</h1>
                             
-                            <h2 className='upper-heading2'> 
-                            <div class='warning'>
-                                <span className='inline-flex items-center text-2xl'>
-                                    {theme === "sick" && <PiWarningFill size={50} className='mr-2' style = {style_warn} />}
-                                
-                                    {theme === "healthy" ? "Your wound is doing"  : "Your wound requires immediate"} 
+                            {/* <h2 className='upper-heading2'> 
+                            <div className="warning" style={{ display: 'flex', alignItems: 'center', flexDirection: window.innerWidth < 600 ? 'column' : 'row' }}>
+                                {theme === "sick" && (
+                                    <div className="icon-container">
+                                    <PiWarningFill size={50} className="mr-2" style={style_warn} />
+                                    </div>
+                                )}
+                                <span className="inline-flex text-2xl">
+                                    {theme === "healthy" ? "Your wound is doing" : "Your wound requires immediate"}
                                 </span>
-                            </div>
+                                </div>
                             <div className='cond-status-container items-center text-3xl font-extrabold'>
                                 <p className='condition-status mx-2'> {theme === "healthy" ? "WELL!" : "ATTENTION!"}</p>
                                 
                             </div>
-                            </h2>
+                            </h2> */}
+                            <div className="upper-heading2">
+                                <div className="warning" style={{ display: 'flex', alignItems: 'center', flexDirection: window.innerWidth < 600 ? 'column' : 'row' }}>
+                                    {theme === "sick" && (
+                                    <div className="icon-container">
+                                        <PiWarningFill size={50} className="mr-2" style={style_warn} />
+                                    </div>
+                                    )}
+                                    <span className="inline-flex text-2xl">
+                                    {theme === "healthy" ? "Your wound is doing" : "Your wound requires immediate"}
+                                    </span>
+                                </div>
+                                <div className="cond-status-container items-center text-3xl font-extrabold">
+                                    <p className="condition-status mx-2"> {theme === "healthy" ? "WELL!" : "ATTENTION!"}</p>
+                                </div>
+                                </div>
                             
                             
                         </div>
@@ -227,10 +245,13 @@ export default function Home() {
 
                     </div>
                     <div class="lower-container">
+                    
+                        
                         <div className='lower-left'>
-                            <div className="inner-lower-left flex rounded-3xl bg-box-blue shadow-2xl">
-                                <p className="tempName">Temperature</p>
+                            <div className="inner-lower-left flex rounded-3xl bg-box-blue shadow-2xl" >
+                                <p className="tempName" >Temperature</p>
                                 <p className="tempValue">{temperature}</p>
+                                
                             </div>
                         </div>
                         
@@ -240,9 +261,13 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='lower-right '>
-                            <div className="inner-lower-right flex rounded-3xl bg-box-blue shadow-2xl">
+                            <div className="inner-lower-right flex rounded-3xl bg-box-blue shadow-2xl" id="my-anchor-element" >
                                 <p className="dayCount">{daysUsingBandage}</p>
                                 <p className="dayText">Days</p>
+                                <Tooltip anchorSelect="#my-anchor-element"
+                                    content="Days of Bandage Use"
+                                    style={{ backgroundColor: "rgb(65, 115, 254)", color: "rgb(255,255,255)", borderRadius: '30px' }} 
+                                    className='toolDays'/>
                             </div>
                             <div className="logOut">
                                 <button onClick={() => {logOut()}} className="logOutBtn">

@@ -98,13 +98,14 @@
     flex: 20%;
     padding: 20px;   
     justify-items: center ;
+    min-width: 200px;
 }
 
 .lower-container{
     color:#01358C;
     display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     flex-direction: row;
     /* justify-content: flex-start; */
     
@@ -113,11 +114,12 @@
 .lower-left{
     display: flex;
     flex-direction: column;
-    flex: 20%;
+    flex: 22.5%;
     align-items: center;
     /* justify-items: center; */
     /* justify-content: center; */
     margin-top: 20vh;
+    padding-right: 20px;
 }
 
 .inner-lower-left{
@@ -127,7 +129,9 @@
     justify-items : center;
     padding: 15px;
     width: 300px;
-    height: 200px;
+    height: 180px;
+    
+    
     /* width: 90%; */
 }
 
@@ -158,6 +162,7 @@
     align-content: center;
     justify-content: center;
     justify-items: center;
+    padding: 20px;
     /* padding-left: 4%; */
 }
 
@@ -188,13 +193,14 @@
 .lower-right{
     display: flex;
     flex-direction: column;
-    flex: 20%;
+    flex: 22.5%;
     align-items: center;
-    /* justify-items: center; */
+    justify-items: center;
     /* justify-content: center; */
     gap: 2rem;
     align-items: center;
     margin-top: 20vh;
+    padding-left: 20px;
 }
 
 .inner-lower-right{
@@ -206,7 +212,7 @@
     border-style: solid;
     border-color: #9CADCA;
     width: 300px;
-    height: 200px;
+    height: 180px;
     
     
     /* width: 90%; */
@@ -226,6 +232,12 @@
     font-weight: bold;
     font-size: xx-large;
     color: #01358C;
+}
+
+.toolDays{
+    background-color: rgb(65, 115, 254);
+    color: white;
+    border-radius: 30px;
 }
 
 .logOut {
@@ -249,7 +261,7 @@
 }
 
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1250px){
     .upper-container {
       display: flex;
       flex-direction: column;
@@ -305,7 +317,7 @@
         font-family: lexend ;
         background-image: url('assets/first\ blob.png'), url('assets/second\ blob.png');
         background-repeat: no-repeat, no-repeat;
-        background-position: left top,right center;
+        background-position: left top,right bottom;
         width: 100%, 100%;
         background-size: 30%, 40%;
         /* height: max-content; */
@@ -339,8 +351,24 @@ div.upleft {
     min-height: 60px;
     text-align: center;
     align-items: center;
+    flex-direction: column;
 }
 
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the icon when in column layout */
+    /* order: 1; Place the icon above the text when window width is smaller */
+  }
+  
+  
+  @media (max-width: 600px) {
+    .warning {
+      flex-direction: column;
+    }
+    
+    
+  }
 
 
 

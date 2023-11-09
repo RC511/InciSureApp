@@ -1,7 +1,7 @@
 .back {
     background: linear-gradient(180deg, rgb(230, 239, 255) 0%, rgb(255, 255, 255) 100%);
     font-family: Lexend;
-    font-weight: 700;
+    /* font-weight: 700; */
 }
 
 
@@ -31,6 +31,11 @@
     justify-content: space-evenly;
     max-width: 240px;
     gap: 2rem;
+}
+
+.box-warning{
+    min-width: 300px;
+    
 }
 
 

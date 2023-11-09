@@ -38,6 +38,7 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "react-switch": "^7.0.0",
+    "react-tooltip": "^5.22.0",
     "request-promise-core": "^1.1.4",
     "sort-by": "^1.2.0",
     "stream-browserify": "^3.0.0",

@@ -6,7 +6,7 @@ import { Line } from "react-chartjs-2";
 function TempChart({ chartData }) {
   return (
     <div className="chart-container">
-      <h2 style={{ textAlign: "center", color: '#01358C', fontSize: '35px' }}>Temperature</h2>
+      <h2 style={{ textAlign: "center", color: '#01358C', fontSize: '35px', fontWeight: 'bold' }}>Temperature</h2>
       <Line
         data={chartData}
         options={{

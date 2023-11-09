@@ -4,7 +4,7 @@ import { Line } from "react-chartjs-2";
 function ImpChart({ chartData }) {
   return (
     <div className="chart-container">
-      <h2 style={{ textAlign: "center", color: '#01358C', fontSize: '35px' }}>Impedance</h2>
+      <h2 style={{ textAlign: "center", color: '#01358C', fontSize: '35px',fontWeight: 'bold' }}>Impedance</h2>
       <Line
         data={chartData}
         options={{
