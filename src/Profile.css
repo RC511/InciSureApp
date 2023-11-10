@@ -39,8 +39,8 @@
 }
 
 .avatar{
-    min-width: 280px;
-    min-height: 280px;
+    min-width: 250px;
+    min-height: 250px;
 /*     background-color:blueviolet; */
     display: flex;
     align-self: stretch;
