@@ -53,7 +53,7 @@ export default function Logs() {
           const length = newData.length;
           setTemperature(newData[length-1].temp + "°C")
           setTempData(newData);
-          setImpedance(newData[length-1].imp+ "Ω")
+          setImpedance(Number.parseFloat(newData[length-1].imp/1000).toFixed(2)+ "kΩ")
 
           const updatedChartData1 = {
             labels: newData.map((entry)=> entry.time),
@@ -88,11 +88,11 @@ export default function Logs() {
           setChartData1(updatedChartData1)
 
           const updatedChartData2 = {
-            labels: newData.map((entry)=> entry.time),
+            labels: newData.map((entry)=> entry.time/1000),
             datasets: [
               {
                 label: "Impedance",
-                data: newData.map((entry) => entry.imp),
+                data: newData.map((entry) => entry.imp/1000),
                 borderColor: "#B69DF8",
                 borderWidth: 2
               },
@@ -126,6 +126,8 @@ export default function Logs() {
   }).catch((error) => {
       console.error(error);
   });
+
+  
     
   const style_warn = { color: "red" };
     return(
