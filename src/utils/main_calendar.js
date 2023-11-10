@@ -103,7 +103,7 @@ function Calendar() {
 				</h1>
 				<p className="text-gray-400 text-base mt-4">No appointment made on the specified date</p>
 				<div className="doctor-name mt-4">
-					 <BsPersonCircle size={25}/><span> &nbsp;Dr. Lee Yeu Hann</span>
+					 <BsPersonCircle size={25}/><span> &nbsp;Dr. Group FOUR</span>
 				</div>
 				<p className="appointment-text">No upcoming appointment</p>
 
